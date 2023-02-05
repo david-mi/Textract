@@ -3,8 +3,6 @@ export class Home {
   constructor() {
     this.fileInput = document.querySelector("input[type='file']");
     this.fileInput.addEventListener("change", this.handleFileInput.bind(this));
-    this.resetButton = document.getElementById("reset");
-    this.resetButton.addEventListener("click", this.reset.bind(this));
     this.infosElement = document.getElementById("infos");
     document.addEventListener("paste", this.handlePasteFromClipboard.bind(this));
   }
@@ -15,7 +13,7 @@ export class Home {
     const isMimeTypeAccepted = mimeTypes.includes(addedFileMimeType);
 
     if (isMimeTypeAccepted === false) {
-      throw new Error("Type non pris en charge");
+      throw new Error("Type du fichier non pris en charge");
     }
   }
 
@@ -30,6 +28,7 @@ export class Home {
 
   reset() {
     this.fileInput.value = "";
+    this.infosElement.textContent = "";
     this.removeInfos();
   }
 
@@ -41,12 +40,7 @@ export class Home {
     this.infosElement.textContent = infos.name;
   }
 
-  removeInfos() {
-    this.infosElement.textContent = "";
-  }
-
   handleFileInput({ target }) {
-    console.log("hi");
     const addedFile = target.files[0];
     try {
       this.checkFileValidity(addedFile);

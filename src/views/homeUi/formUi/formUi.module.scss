@@ -28,21 +28,6 @@
     }
   }
 
-  .reset {
-    align-self: center;
-    padding: 5px 20px;
-    border-radius: 10px;
-    grid-area: reset;
-    color: white;
-    background-color: var(--clr-upload);
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--clr-bg-deco-first);
-      color: black;
-    }
-  }
-
   input[type="file"] {
     display: none;
   }

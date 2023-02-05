@@ -10,7 +10,6 @@ export function formUi() {
       </svg>
     </label>
   <small id="infos"></small>
-  <button type="button" class=${styles.reset} id="reset">Reset</button>
   </form>
   `;
 }
