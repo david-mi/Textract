@@ -18,6 +18,8 @@
   }
 
   label {
+    display: grid;
+    place-items: center;
     grid-area: label;
     cursor: pointer;
 
