@@ -1,4 +1,4 @@
-import { formUi, instructionsUi } from "./index";
+import { formUi } from "./index";
 import styles from "./homeUi.module.scss";
 
 export function homeUi() {
@@ -6,7 +6,6 @@ export function homeUi() {
     <main>
       <h1 class=${styles.title}>Image Text Extractor</h1>
       ${formUi()}
-      <!--${instructionsUi()}-->
     </main>
   `;
 }
