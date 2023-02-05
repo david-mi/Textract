@@ -1,6 +1,7 @@
 
 export class Home {
   constructor() {
+    this.form = document.getElementById("form");
     this.fileInput = document.querySelector("input[type='file']");
     this.fileInput.addEventListener("change", this.handleFileInput.bind(this));
     this.infosElement = document.getElementById("infos");
@@ -29,7 +30,6 @@ export class Home {
   reset() {
     this.fileInput.value = "";
     this.infosElement.textContent = "";
-    this.removeInfos();
   }
 
   displayInfos(infos) {
