@@ -6,6 +6,7 @@ export class Home {
     this.resetButton = document.getElementById("reset");
     this.resetButton.addEventListener("click", this.reset.bind(this));
     this.infosElement = document.getElementById("infos");
+    document.addEventListener("paste", this.handlePasteFromClipboard.bind(this));
   }
 
   checkFileValidity(file) {
@@ -16,6 +17,15 @@ export class Home {
     if (isMimeTypeAccepted === false) {
       throw new Error("Type non pris en charge");
     }
+  }
+
+  handlePasteFromClipboard({ clipboardData }) {
+    const files = clipboardData.files;
+    console.log(files);
+    if (files.length === 0) return;
+
+    this.fileInput.files = files;
+    this.fileInput.dispatchEvent(new Event("change"));
   }
 
   reset() {
@@ -36,6 +46,7 @@ export class Home {
   }
 
   handleFileInput({ target }) {
+    console.log("hi");
     const addedFile = target.files[0];
     try {
       this.checkFileValidity(addedFile);
