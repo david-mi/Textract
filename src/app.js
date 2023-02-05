@@ -1,2 +1,5 @@
 import "./styles/index.scss";
-console.log("init");
+(() => {
+  const root = document.getElementById("root");
+  root.insertAdjacentHTML("beforeend", homeUi());
+})();

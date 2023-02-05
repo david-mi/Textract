@@ -1,0 +1,47 @@
+.form {
+  background-color: red;
+  width: 1000px;
+  height: 500px;
+  background-color: transparent;
+  border: dashed 20px var(--clr-upload);
+  display: grid;
+  justify-content: center;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "."
+    "label"
+    "reset";
+
+  label path,
+  .reset {
+    transition: 400ms;
+  }
+
+  label {
+    grid-area: label;
+    cursor: pointer;
+
+    &:hover path {
+      fill: var(--clr-bg-deco-first);
+    }
+  }
+
+  .reset {
+    align-self: center;
+    padding: 5px 20px;
+    border-radius: 10px;
+    grid-area: reset;
+    color: white;
+    background-color: var(--clr-upload);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--clr-bg-deco-first);
+      color: black;
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
