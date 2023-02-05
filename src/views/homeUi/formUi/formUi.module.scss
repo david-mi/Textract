@@ -1,30 +1,28 @@
 .form {
-  background-color: red;
-  width: 1000px;
-  height: 500px;
-  background-color: transparent;
-  border: dashed 20px var(--clr-upload);
-  display: grid;
-  justify-content: center;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    "."
-    "label"
-    "reset";
-
-  label path,
-  .reset {
-    transition: 400ms;
-  }
-
   label {
+    width: clamp(350px, 70vw, 700px);
+    height: clamp(150px, 70vw, 500px);
+    border: dashed 20px var(--clr-upload);
     display: grid;
     place-items: center;
     grid-area: label;
     cursor: pointer;
+    transition: 400ms;
 
-    &:hover path {
-      fill: var(--clr-bg-deco-first);
+    * {
+      transition: 400ms;
+    }
+
+    &:hover {
+      border-color: var(--clr-bg-deco-first);
+
+      svg {
+        transform: scale(1.2);
+
+        path {
+          fill: var(--clr-bg-deco-first);
+        }
+      }
     }
   }
 
