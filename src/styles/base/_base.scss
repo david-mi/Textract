@@ -8,11 +8,9 @@ body {
   --clr-text: black;
   --clr-bg: white;
   --clr-upload: black;
-  --clr-bg-deco-first: red
-  --clr-bg-deco-second: orange;
   overflow: hidden;
-  background-color: #85FFBD;
-  --clr-gradient: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  background-color: #85ffbd;
+  --clr-gradient: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
   background-image: var(--clr-gradient);
   min-height: 100vh;
 
@@ -21,14 +19,14 @@ body {
       background: var(--clr-gradient);
       background-clip: text;
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;      
+      -webkit-text-fill-color: transparent;
     }
 
-    .bg-deco path{
+    .bg-deco path {
       fill: black;
     }
 
-    label[for="file"]{
+    label[for="file"] {
       &::before {
         opacity: 0;
       }
@@ -41,6 +39,10 @@ body {
         }
       }
     }
+
+    #error_file {
+      color: red;
+    }
   }
 }
 
@@ -50,5 +52,3 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-

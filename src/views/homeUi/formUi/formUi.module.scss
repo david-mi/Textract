@@ -1,5 +1,7 @@
 .form {
   display: flex;
+  position: relative;
+  flex-direction: column;
   justify-content: center;
   grid-area: form;
 
@@ -47,5 +49,13 @@
 
   input[type="file"] {
     display: none;
+  }
+
+  .error {
+    position: absolute;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+    bottom: -1.5rem;
   }
 }

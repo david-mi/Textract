@@ -12,7 +12,7 @@ export class DragAndDrop extends Paste {
 
   handleDragEnter(event) {
     event.preventDefault();
-    this.handleFormMouseEnter();
+    this.handleLabelMouseEnter();
   }
 
   handleDragOver(event) {
@@ -21,7 +21,7 @@ export class DragAndDrop extends Paste {
 
   handleDragLeave(event) {
     event.preventDefault();
-    this.handleFormMouseLeave();
+    this.handleLabelMouseLeave();
   }
 
   handleDrop(event) {

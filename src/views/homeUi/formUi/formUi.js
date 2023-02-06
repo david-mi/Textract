@@ -9,7 +9,7 @@ export function formUi() {
       ${uploadIcon(styles.icon)}
       ${uploadIconGradient(styles.icon)}
     </label>
-  <small id="infos"></small>
+    <small class=${styles.error} id="error_file"></small>
   </form>
   `;
 }
