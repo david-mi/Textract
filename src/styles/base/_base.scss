@@ -7,16 +7,34 @@
 body {
   --clr-text: black;
   --clr-bg: white;
-  --clr-upload: #939393;
-  --clr-bg-deco-first: #9fff5385;
-  --clr-bg-deco-second: #baeed285;
+  --clr-upload: black;
+  --clr-bg-deco-first: red
+  --clr-bg-deco-second: orange;
+  overflow: hidden;
+  background-color: #85FFBD;
+  --clr-gradient: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  background-image: var(--clr-gradient);
+  min-height: 100vh;
+
+  &.hover-form {
+    .main-title {
+      background: var(--clr-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;      
+    }
+
+    .bg-deco path{
+      fill: black;
+    }
+  }
 }
 
 #root {
-  min-height: 100vh;
   padding-inline: clamp(20px, 9vw - 1.8vmax, 100px);
-  padding-top: clamp(20px, 3vw, 40px);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+

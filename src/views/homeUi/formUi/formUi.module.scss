@@ -1,8 +1,18 @@
 .form {
+  display: flex;
+  justify-content: center;
+  grid-area: form;
+
   label {
+    --border-width: 15px;
+    --inset: -15px;
+    position: relative;
     width: clamp(350px, 70vw, 700px);
-    height: clamp(150px, 70vw, 500px);
-    border: dashed 20px var(--clr-upload);
+    max-height: 500px;
+    height: 100%;
+    border-image: var(--clr-gradient) 1 10;
+    border-style: solid;
+    border-width: var(--border-width);
     display: grid;
     place-items: center;
     grid-area: label;
@@ -13,15 +23,37 @@
       transition: 400ms;
     }
 
+    &:before {
+      position: absolute;
+      content: "";
+      inset: var(--inset);
+      border: solid var(--border-width) black;
+      transition: 400ms;
+    }
+
     &:hover {
-      border-color: var(--clr-bg-deco-first);
+      &::before {
+        opacity: 0;
+      }
 
-      svg {
-        transform: scale(1.2);
+      .icon {
+        transform: translate(-50%, -50%) scale(1);
 
-        path {
-          fill: var(--clr-bg-deco-first);
+        &:nth-child(1) {
+          opacity: 0;
         }
+      }
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      width: clamp(50px, 15vw, 95px);
+
+      &:nth-child(1) {
+        z-index: 1;
       }
     }
   }

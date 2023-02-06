@@ -1,3 +1,31 @@
-.title {
-  font-size: clamp(30px, 6vw, 100px);
+.main {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "title"
+    "form"
+    ".";
+  height: 100vh;
+  align-content: center;
+
+  .title {
+    grid-area: title;
+    font-size: clamp(50px, 6vw, 65px);
+    text-align: center;
+    align-self: center;
+  }
+
+  .svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(1000px, 300vw, 300vw);
+    z-index: -1;
+
+    path {
+      fill: rgb(255, 255, 255);
+      transition: 400ms;
+    }
+  }
 }
