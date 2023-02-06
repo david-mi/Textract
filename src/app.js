@@ -1,9 +1,9 @@
 import "./styles/index.scss";
 import { homeUi } from "./views/homeUi/homeUi";
-import { Home } from "./containers/home/home";
+import { DragAndDrop } from "./containers/home/inputFile/dragAndDrop";
 
 (() => {
   const root = document.getElementById("root");
   root.insertAdjacentHTML("beforeend", homeUi());
-  new Home();
+  new DragAndDrop();
 })();
