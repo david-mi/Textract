@@ -11,8 +11,7 @@ export class InputFile {
   }
 
   displayError(error) {
-    console.log(error);
-    console.log(this.errorElement);
+    console.error(error.message);
     this.errorElement.textContent = error.message;
   }
 

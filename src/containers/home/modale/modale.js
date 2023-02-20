@@ -32,8 +32,6 @@ export class Modale {
   }
 
   async handleSubmitPicture() {
-    console.log(this.file);
-    console.log(this.langSelect.value);
     const chosenLang = this.langSelect.value;
 
     const options = { logger: this.handleImageProcessing.bind(this) };
