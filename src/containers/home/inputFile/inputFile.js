@@ -1,3 +1,5 @@
+import { Modale } from "../modale/modale";
+
 export class InputFile {
   constructor() {
     this.fileInput = document.querySelector("input[type='file']");
@@ -26,6 +28,8 @@ export class InputFile {
     const addedFile = target.files[0];
     try {
       this.checkFileValidity(addedFile);
+      this.reset();
+      new Modale(addedFile);
     } catch (error) {
       this.reset();
       this.displayError(error);
