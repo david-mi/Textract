@@ -13,6 +13,8 @@ export class Modale {
     this.submitPictureButton.addEventListener("click", this.handleSubmitPicture.bind(this));
     this.textPictureElement = document.getElementById("text-picture");
     this.langSelect = document.getElementById("lang");
+    this.langSelect.addEventListener("change", this.saveLangToStorage.bind(this));
+    this.displayLangFromStorage();
   }
 
   displayModale() {
@@ -22,6 +24,17 @@ export class Modale {
 
   closeModale() {
     this.modale.remove();
+  }
+
+  saveLangToStorage() {
+    localStorage.setItem("prefLang", this.langSelect.value);
+  }
+
+  displayLangFromStorage() {
+    const prefLang = localStorage.getItem("prefLang");
+    if (prefLang) {
+      this.langSelect.value = prefLang;
+    }
   }
 
   handleImageProcessing({ progress, status }) {
