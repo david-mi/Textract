@@ -1,5 +1,5 @@
 import styles from "./processModaleUi.module.scss";
-import { closeIcon } from "../../../svg/closeIcon";
+import { closeButtonUi } from "../../common/closeButton/closeButtonUi";
 
 export const processModaleUi = (imageSrc) => {
   return `
@@ -17,9 +17,7 @@ export const processModaleUi = (imageSrc) => {
         <option value="fra">Français</option> 
       </select>
       </form>
-      <button id="closeModale" class=${styles.close}>
-      ${closeIcon(styles.close)}
-      </button>
+      ${closeButtonUi("closeModale")}
       <button id="submit-picture" class=${styles.submit}>Send</button>
   </div>
   `;

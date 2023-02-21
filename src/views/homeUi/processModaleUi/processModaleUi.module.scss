@@ -73,17 +73,4 @@
     border-radius: 20px;
     cursor: pointer;
   }
-
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    cursor: pointer;
-    path {
-      fill: black;
-    }
-  }
 }
