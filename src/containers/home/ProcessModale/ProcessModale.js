@@ -1,6 +1,6 @@
 import { processModaleUi } from "../../../views/homeUi/processModaleUi/processModaleUi";
-import Tesseract from "tesseract.js";
 import { ResultModale } from "../ResultModale/ResultModale";
+import { createWorker } from "tesseract.js";
 
 export class ProcessModale {
   constructor(file) {
@@ -64,7 +64,11 @@ export class ProcessModale {
     this.displayProcessingProgress();
 
     const options = { logger: this.handleImageProcessing.bind(this) };
-    const { data } = await Tesseract.recognize(this.file, chosenLang, options);
+    const worker = await createWorker(options);
+    await worker.loadLanguage(chosenLang);
+    await worker.initialize(chosenLang);
+    const { data } = await worker.recognize(this.file);
+    await worker.terminate();
 
     this.closeProcessModale();
 
