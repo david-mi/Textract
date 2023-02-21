@@ -1,6 +1,6 @@
 import "./styles/index.scss";
 import { homeUi } from "./views/homeUi/homeUi";
-import { DragAndDrop } from "./containers/home/inputFile/dragAndDrop";
+import { DragAndDrop } from "./containers/home/AddFile/dragAndDrop";
 
 (() => {
   const root = document.getElementById("root");

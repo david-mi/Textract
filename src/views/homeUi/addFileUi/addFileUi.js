@@ -1,7 +1,7 @@
-import styles from "./formUi.module.scss";
+import styles from "./addFileUi.module.scss";
 import { uploadIcon, uploadIconGradient } from "../../../svg";
 
-export function formUi() {
+export function addFileUi() {
   return `
   <form class=${styles.form} id="form">
     <input type="file" accept="jpg, jpeg, png, webp" id="file">

@@ -1,4 +1,4 @@
-import { Paste } from "./paste";
+import { Paste } from "./Paste";
 
 
 export class DragAndDrop extends Paste {

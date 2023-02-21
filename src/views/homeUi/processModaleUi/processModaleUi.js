@@ -1,7 +1,7 @@
-import styles from "./modaleUi.module.scss";
+import styles from "./processModaleUi.module.scss";
 import { closeIcon } from "../../../svg/closeIcon";
 
-export const modaleUi = (imageSrc) => {
+export const processModaleUi = (imageSrc) => {
   return `
   <div class=${styles.modale} id="modale">
     <section class=${styles["image-container"]}>
@@ -13,7 +13,7 @@ export const modaleUi = (imageSrc) => {
     <form>
       <label for="lang">Chose a lang :</label>
       <select id="lang">
-        <option value="eng">Anglais</option> 
+        <option value="eng">Anglais</option>
         <option value="fra">Français</option> 
       </select>
       </form>

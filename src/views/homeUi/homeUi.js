@@ -1,4 +1,4 @@
-import { formUi } from "./index";
+import { addFileUi } from "./index";
 import styles from "./homeUi.module.scss";
 import { bgDeco } from "../../svg/bgDeco";
 
@@ -7,7 +7,7 @@ export function homeUi() {
     <main class=${styles.main}>
       ${bgDeco(styles.svg)}
       <h1 class="${styles.title} main-title">Image Text Extractor</h1>
-      ${formUi()}
+      ${addFileUi()}
     </main>
   `;
 }

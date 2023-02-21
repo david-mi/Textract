@@ -1,6 +1,6 @@
-import { Modale } from "../modale/modale";
+import { ProcessModale } from "../ProcessModale/ProcessModale";
 
-export class InputFile {
+export class AddFile {
   constructor() {
     this.fileInput = document.querySelector("input[type='file']");
     this.fileInput.addEventListener("change", this.handleFileInput.bind(this));
@@ -11,7 +11,7 @@ export class InputFile {
   }
 
   displayError(error) {
-    console.error(error.message);
+    console.error(error);
     this.errorElement.textContent = error.message;
   }
 
@@ -28,11 +28,10 @@ export class InputFile {
     try {
       this.checkFileValidity(addedFile);
       this.reset();
-      new Modale(addedFile);
+      new ProcessModale(addedFile);
     } catch (error) {
       this.reset();
       this.displayError(error);
-      console.error(error);
     }
   }
 

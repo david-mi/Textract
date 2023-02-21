@@ -1,7 +1,7 @@
-import { modaleUi } from "../../../views/homeUi/modaleUi/modaleUi";
+import { processModaleUi } from "../../../views/homeUi/processModaleUi/processModaleUi";
 import Tesseract from "tesseract.js";
 
-export class Modale {
+export class ProcessModale {
   constructor(file) {
     this.file = file;
     this.fileSrc = URL.createObjectURL(file);
@@ -19,7 +19,7 @@ export class Modale {
 
   displayModale() {
     const root = document.getElementById("root");
-    root.insertAdjacentHTML("beforeend", modaleUi(this.fileSrc));
+    root.insertAdjacentHTML("beforeend", processModaleUi(this.fileSrc));
   }
 
   closeModale() {

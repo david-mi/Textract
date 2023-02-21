@@ -1,6 +1,6 @@
-import { InputFile } from "./inputFile";
+import { AddFile } from "./AddFile";
 
-export class Paste extends InputFile {
+export class Paste extends AddFile {
   constructor() {
     super();
     document.addEventListener("paste", this.handlePasteFromClipboard.bind(this));
