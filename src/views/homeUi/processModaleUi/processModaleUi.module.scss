@@ -70,5 +70,35 @@
     z-index: 9999;
     background-color: white;
     font-size: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .progress-value {
+    position: relative;
+    z-index: 9999;
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+  }
+
+  .animation {
+    position: relative;
+    height: 60%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+
+  .animation::before {
+    position: absolute;
+    content: "";
+    inset: 20px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 10;
   }
 }

@@ -4,9 +4,11 @@ import { closeButtonUi } from "../../common/closeButton/closeButtonUi";
 export const processModaleUi = (imageSrc) => {
   return `
   <div class=${styles.modale} id="modale">
-    <div class=${styles.loader} id="process-loader">
-      <span>Chargement</span>
-      <span class=${styles.progress} id="progress"></span>
+    <div class=${styles.loader} id="progress">
+      <p>Processing...</p>
+      <div class=${styles.animation} id="animation">
+       <span class=${styles["progress-value"]} id="progress-value">0%</span>
+      </div>
     </div>
     <form>
       <label for="lang">Chose a lang :</label>

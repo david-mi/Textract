@@ -16,8 +16,9 @@ export class ProcessModale {
     this.langSelect = document.getElementById("lang");
     this.langSelect.addEventListener("change", this.saveLangToStorage.bind(this));
     this.displayLangFromStorage();
-    this.processLoader = document.getElementById("process-loader");
     this.progressElement = document.getElementById("progress");
+    this.progressValueElement = document.getElementById("progress-value");
+    this.animationElement = document.getElementById("animation");
   }
 
   displayProcessModale() {
@@ -41,14 +42,22 @@ export class ProcessModale {
   }
 
   handleImageProcessing({ progress, status }) {
+    console.log(progress, status);
     if (status === "recognizing text") {
       const progression = (progress * 100).toFixed(2) + " %";
-      this.progressElement.innerText = progression;
+      this.progressValueElement.innerText = progression;
+      const angleProgress = progress * 3.6 * 100;
+      console.log(angleProgress);
+      this.animationElement.style.background = `conic-gradient(
+        black ${angleProgress}deg,
+        white ${angleProgress}deg
+      )`;
     }
   }
 
   displayProcessingProgress() {
-    this.processLoader.style.display = "block";
+    console.log(this.progressElement);
+    this.progressElement.style.display = "flex";
   }
 
   async handleSubmitPicture() {
