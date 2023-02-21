@@ -42,12 +42,11 @@ export class ProcessModale {
   }
 
   handleImageProcessing({ progress, status }) {
-    console.log(progress, status);
+    console.log(status);
     if (status === "recognizing text") {
       const progression = (progress * 100).toFixed(2) + " %";
       this.progressValueElement.innerText = progression;
       const angleProgress = progress * 3.6 * 100;
-      console.log(angleProgress);
       this.animationElement.style.background = `conic-gradient(
         black ${angleProgress}deg,
         white ${angleProgress}deg
@@ -56,7 +55,6 @@ export class ProcessModale {
   }
 
   displayProcessingProgress() {
-    console.log(this.progressElement);
     this.progressElement.style.display = "flex";
   }
 
