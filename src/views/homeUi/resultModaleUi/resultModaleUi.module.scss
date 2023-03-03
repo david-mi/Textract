@@ -24,4 +24,48 @@
   word-wrap: break-word;
   transition: 300ms;
   font-size: 1.1rem;
+  overflow-x: hidden;
+}
+
+.copied {
+  display: none;
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(5px);
+  place-items: center;
+  font-weight: bold;
+  animation: backdrop 2.5s forwards cubic-bezier(0.09, 1.08, 0.88, 1.08);
+
+  p {
+    user-select: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.199);
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 15px 20px;
+    transform: translateX(-200%);
+    animation: slide 2.5s forwards cubic-bezier(0.09, 1.08, 0.88, 1.08);
+  }
+}
+
+@keyframes slide {
+  20%,
+  60% {
+    transform: translateX(0%) skewX(0deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(20deg);
+  }
+}
+
+@keyframes backdrop {
+  0%,
+  60% {
+    backdrop-filter: blur(5px);
+  }
+
+  100% {
+    backdrop-filter: blur(0px);
+  }
 }
