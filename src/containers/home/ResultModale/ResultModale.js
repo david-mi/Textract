@@ -7,6 +7,8 @@ export class ResultModale {
     this.resultModale = document.getElementById("result-modale");
     this.closeResultModaleButton = document.getElementById("close-result-modale");
     this.closeResultModaleButton.addEventListener("click", this.handleCloseResultModale.bind(this));
+    this.copyButton = document.getElementById("copy-button");
+    this.copyButton.addEventListener("click", this.handleCopy.bind(this));
   }
 
   handleCloseResultModale() {
