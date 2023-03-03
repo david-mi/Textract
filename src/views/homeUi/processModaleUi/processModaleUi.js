@@ -5,7 +5,7 @@ export const processModaleUi = (imageSrc) => {
   return `
   <div class=${styles.modale} id="modale">
     <div class=${styles.loader} id="progress">
-      <p>Processing...</p>
+      <p id="status" class=${styles.status}>
       <div class=${styles.animation} id="animation">
        <span class=${styles["progress-value"]} id="progress-value">0%</span>
       </div>
