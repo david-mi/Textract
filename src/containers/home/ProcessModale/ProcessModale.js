@@ -99,7 +99,6 @@ export class ProcessModale {
     await worker.terminate();
 
     this.closeProcessModale();
-
-    new ResultModale(data.text);
+    new ResultModale(data.paragraphs);
   }
 }
