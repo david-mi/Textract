@@ -10,7 +10,7 @@
     --border-width: 15px;
     --inset: -15px;
     position: relative;
-    width: clamp(350px, 70vw, 700px);
+    width: clamp(350px, 70vw, 600px);
     max-height: 500px;
     height: 100%;
     border-image: var(--clr-gradient) 1 10;
