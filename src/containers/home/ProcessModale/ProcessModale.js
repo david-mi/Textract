@@ -66,8 +66,7 @@ export class ProcessModale {
   }
 
   handleImageProcessing({ progress, status }) {
-    if (this.status !== status) {
-      console.log(status);
+    if (this.status !== this.handleStatusLanguage(status)) {
       this.status = this.handleStatusLanguage(status);
       this.statusElement.innerText = this.status;
     }
