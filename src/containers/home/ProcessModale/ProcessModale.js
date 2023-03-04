@@ -24,8 +24,8 @@ export class ProcessModale {
   }
 
   displayProcessModale() {
-    const root = document.getElementById("root");
-    root.insertAdjacentHTML("beforeend", processModaleUi(this.fileSrc));
+    const main = document.querySelector("main");
+    main.insertAdjacentHTML("beforeend", processModaleUi(this.fileSrc));
   }
 
   closeProcessModale() {

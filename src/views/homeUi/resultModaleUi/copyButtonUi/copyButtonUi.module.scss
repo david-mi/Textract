@@ -1,8 +1,8 @@
-.copy {
+.copy-button {
   display: grid;
   place-items: center;
   position: absolute;
-  top: 5px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
   width: clamp(30px, 8vh - 3vw, 70px);

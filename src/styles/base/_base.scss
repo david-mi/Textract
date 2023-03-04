@@ -8,7 +8,6 @@ body {
   --clr-text: black;
   --clr-bg: white;
   --clr-upload: black;
-  overflow: hidden;
   background-color: #85ffbd;
   --clr-gradient: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
   background-image: var(--clr-gradient);
@@ -46,9 +45,9 @@ body {
   }
 }
 
-#root {
-  padding-inline: clamp(20px, 9vw - 1.8vmax, 100px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+main {
+  // padding-inline: clamp(20px, 9vw - 1.8vmax, 100px);
+  // padding-block: clamp(10px, 9vw - 1.8vmax, 50px);
+  position: relative;
+  overflow: hidden;
 }

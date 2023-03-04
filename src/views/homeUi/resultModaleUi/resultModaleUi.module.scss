@@ -5,7 +5,8 @@
   background-color: white;
   display: grid;
   place-items: center;
-  padding-block: 100px;
+  gap: 20px;
+  padding-block: 10px;
   padding-inline: 10px;
 }
 
@@ -14,17 +15,18 @@
   border-image: var(--clr-gradient) 1 10;
   border-style: solid;
   border-width: 10px;
-  min-width: 400px;
+  min-width: 300px;
   max-width: 700px;
   width: 100%;
   padding: 15px;
-  padding-top: 50px;
+  padding-top: calc(clamp(30px, 8vh - 3vw, 70px) + 15px);
   overflow-y: scroll;
   max-height: 100%;
   word-wrap: break-word;
   transition: 300ms;
   font-size: 1.1rem;
   overflow-x: hidden;
+  margin-bottom: auto;
 }
 
 .copied {

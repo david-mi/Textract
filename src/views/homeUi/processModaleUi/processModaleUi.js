@@ -4,6 +4,7 @@ import { closeButtonUi } from "../../common/closeButton/closeButtonUi";
 export const processModaleUi = (imageSrc) => {
   return `
   <div class=${styles.modale} id="modale">
+    ${closeButtonUi("closeModale")}
     <div class=${styles.loader} id="progress">
       <p id="status" class=${styles.status}>
       <div class=${styles.animation} id="animation">
@@ -20,8 +21,7 @@ export const processModaleUi = (imageSrc) => {
     <section class=${styles["image-container"]}>
       <image src=${imageSrc} alt="image wich was added">
     </section>
-      ${closeButtonUi("closeModale")}
-      <button id="submit-picture" class=${styles.submit}>Send</button>
+    <button id="submit-picture" class=${styles.submit}>Send</button>
   </div>
   `;
 };

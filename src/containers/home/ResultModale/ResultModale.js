@@ -18,7 +18,6 @@ export class ResultModale {
   async handleCopy() {
     this.displayCopiedElement();
     await navigator.clipboard.writeText(this.textResult);
-    console.log("texte copié");
   }
 
   displayCopiedElement() {
@@ -40,7 +39,7 @@ export class ResultModale {
   }
 
   displayResultModale() {
-    const root = document.getElementById("root");
-    root.insertAdjacentHTML("beforeend", resultModaleUi(this.paragraphs));
+    const main = document.querySelector("main");
+    main.insertAdjacentHTML("beforeend", resultModaleUi(this.paragraphs));
   }
 }
