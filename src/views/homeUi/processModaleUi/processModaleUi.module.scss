@@ -13,7 +13,6 @@
   padding-bottom: 50px;
 
   .image-container {
-    // flex: 1;
     border-image: var(--clr-gradient) 1 10;
     border-style: solid;
     border-width: 10px;
@@ -95,30 +94,34 @@
   }
 
   .status {
-    margin: auto;
+    margin-top: auto;
+    font-size: clamp(25px, 5vw, 40px);
+    padding-inline: 10px;
+    text-align: center;
   }
 
   .progress-value {
     position: relative;
     z-index: 9999;
-    font-size: 2rem;
+    font-size: clamp(2rem, 6vw, 3rem);
     color: black;
     font-weight: bold;
   }
 
   .animation {
     position: relative;
-    height: 50%;
+    width: clamp(300px, 50vw, 400px);
     aspect-ratio: 1/1;
     border-radius: 50%;
     display: grid;
     place-items: center;
+    margin: auto;
   }
 
   .animation::before {
     position: absolute;
     content: "";
-    inset: 20px;
+    inset: clamp(10px, 2vw, 20px);
     background-color: white;
     border-radius: 50%;
     z-index: 10;
