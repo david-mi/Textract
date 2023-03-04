@@ -1,6 +1,7 @@
 import { processModaleUi } from "../../../views/homeUi/processModaleUi/processModaleUi";
 import { ResultModale } from "../ResultModale/ResultModale";
 import { createWorker } from "tesseract.js";
+import { langConfig } from "../../../langs";
 
 export class ProcessModale {
   constructor(file) {
@@ -43,32 +44,10 @@ export class ProcessModale {
     }
   }
 
-  handleStatusLanguage(status) {
-    const language = navigator.language;
-
-    const enumStatus = {
-      "loading tesseract core": "Chargement du noyen Tesseract",
-      "initializing tesseract": "Initialisation de Tesseract",
-      "initialized tesseract": "Tesseract initialisé",
-      "loading language traineddata": "Chargement du language entraîné",
-      "loading language traineddata (from cache)": "Récupération dans le cache",
-      "loaded language traineddata": "Langage chargé",
-      "initializing api": "Initialisation de l'API",
-      "initialized api": "API initialisée",
-      "recognizing text": "Reconnaissance du texte..."
-    };
-
-    if (language === "fr-FR") {
-      return enumStatus[status];
-    }
-
-    return status;
-  }
-
   handleImageProcessing({ progress, status }) {
-    if (this.status !== this.handleStatusLanguage(status)) {
-      this.status = this.handleStatusLanguage(status);
-      this.statusElement.innerText = this.status;
+    if (this.status !== status) {
+      this.status = status;
+      this.statusElement.innerText = langConfig.processModale.processState[status];
     }
     if (status === "recognizing text") {
       const progression = (progress * 100).toFixed(2) + " %";

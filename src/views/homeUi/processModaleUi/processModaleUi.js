@@ -1,5 +1,6 @@
 import styles from "./processModaleUi.module.scss";
 import { closeButtonUi } from "../../common/closeButton/closeButtonUi";
+import { langConfig } from "../../../langs";
 
 export const processModaleUi = (imageSrc) => {
   return `
@@ -12,16 +13,18 @@ export const processModaleUi = (imageSrc) => {
       </div>
     </div>
     <form>
-      <label for="lang">Chose a lang :</label>
+      <label for="lang">${langConfig.processModale.choseLang}:</label>
       <select id="lang">
-        <option value="eng">Anglais</option>
-        <option value="fra">Français</option> 
+        <option value="eng">${langConfig.processModale.selectOptions.eng}</option>
+        <option value="fra">${langConfig.processModale.selectOptions.fra}</option> 
       </select>
     </form>
     <section class=${styles["image-container"]}>
       <image src=${imageSrc} alt="image wich was added">
     </section>
-    <button id="submit-picture" class=${styles.submit}>Send</button>
+    <button id="submit-picture" class=${styles.submit}>
+    ${langConfig.processModale.sendButton}
+    </button>
   </div>
   `;
 };
