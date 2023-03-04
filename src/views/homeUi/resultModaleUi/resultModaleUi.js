@@ -13,7 +13,9 @@ export function resultModaleUi(textParagraphs) {
   <div class=${styles.modale} id="result-modale">
     ${closeButtonUi("close-result-modale")}
     <div class=${styles.text} id="result-text">
-      ${copyButtonUi(styles.icon)}
+      <div class=${styles["copy-button-container"]}>
+        ${copyButtonUi(styles.icon)}
+      </div>
       ${textToShow}
       <div id="copied" class=${styles.copied}>
         <p>Ajouté au presse papier</p>

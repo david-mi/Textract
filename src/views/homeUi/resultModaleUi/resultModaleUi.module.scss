@@ -18,8 +18,7 @@
   min-width: 300px;
   max-width: 700px;
   width: 100%;
-  padding: 15px;
-  padding-top: calc(clamp(30px, 8vh - 3vw, 70px) + 15px);
+  padding: 0 15px 15px 15px;
   overflow-y: scroll;
   max-height: 100%;
   word-wrap: break-word;
@@ -29,9 +28,22 @@
   margin-bottom: auto;
 }
 
+.copy-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: content-box;
+  padding-block: 5px;
+  margin-inline: -15px;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(3px);
+  height: clamp(50px, 8vh - 4vw, 70px);
+}
+
 .copied {
   display: none;
-  position: absolute;
+  position: fixed;
   inset: 0;
   backdrop-filter: blur(5px);
   place-items: center;

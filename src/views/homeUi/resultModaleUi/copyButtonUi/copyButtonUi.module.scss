@@ -2,20 +2,21 @@
   display: grid;
   place-items: center;
   position: absolute;
-  top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(30px, 8vh - 3vw, 70px);
-  height: clamp(30px, 8vh - 3vw, 70px);
-  background-color: white;
+  background-color: black;
   transition: 300ms;
   cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  width: clamp(50px, 8vh - 4vw, 70px);
+  height: clamp(50px, 8vh - 4vw, 70px);
+
   path {
-    fill: black;
+    fill: white;
   }
 
   &:hover {
-    transform: translateX(-50%) scale(1.1);
     path {
       fill: var(--clr-gradient);
     }
