@@ -1,24 +1,37 @@
-.copy-button {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: black;
-  transition: 300ms;
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 5px;
-  width: clamp(50px, 8vh - 4vw, 70px);
+.copyButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: content-box;
+  padding-block: 5px;
+  margin-inline: -15px;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(3px);
   height: clamp(50px, 8vh - 4vw, 70px);
 
-  path {
-    fill: white;
-  }
+  .copy-button {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    transition: 300ms;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+    width: clamp(50px, 8vh - 4vw, 70px);
+    height: clamp(50px, 8vh - 4vw, 70px);
 
-  &:hover {
     path {
-      fill: var(--clr-gradient);
+      fill: white;
+    }
+
+    &:hover {
+      path {
+        fill: var(--clr-gradient);
+      }
     }
   }
 }

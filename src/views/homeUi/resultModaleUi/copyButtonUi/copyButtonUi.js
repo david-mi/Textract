@@ -3,8 +3,10 @@ import { copyIcon } from "../../../svg/copyIcon";
 
 export function copyButtonUi() {
   return `
-  <button id="copy-button" class=${styles["copy-button"]}>
-    ${copyIcon(styles.copy)}
-  </button>
+  <div class=${styles.copyButtonContainer}>
+    <button id="copy-button" class=${styles["copy-button"]}>
+      ${copyIcon(styles.copy)}
+    </button>
+  </div>
   `;
 }

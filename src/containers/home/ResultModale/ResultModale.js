@@ -10,7 +10,7 @@ export class ResultModale {
     this.closeResultModaleButton.addEventListener("click", this.handleCloseResultModale.bind(this));
     this.copyButton = document.getElementById("copy-button");
     this.copyButton.addEventListener("click", this.handleCopy.bind(this));
-    this.copiedElement = document.getElementById("copied");
+    this.copiedElement = document.getElementById("copied-text-alert");
     this.resultText = document.getElementById("result-text");
     this.copiedElementTimeout = null;
   }
