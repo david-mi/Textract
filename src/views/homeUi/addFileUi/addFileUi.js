@@ -1,15 +1,16 @@
 import styles from "./addFileUi.module.scss";
 import { uploadIcon, uploadIconGradient } from "../../svg";
+import { errorUi } from "./errorUi/errorUi";
 
 export function addFileUi() {
   return `
-  <form class=${styles.form} id="form">
+  <form class=${styles.addFileForm}>
     <input type="file" accept="jpg, jpeg, png, webp" id="file">
     <label for="file">
       ${uploadIcon(styles.icon)}
       ${uploadIconGradient(styles.icon)}
     </label>
-    <small class=${styles.error} id="error_file"></small>
+    ${errorUi()}
   </form>
   `;
 }
