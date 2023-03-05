@@ -1,5 +1,5 @@
 import styles from "./copyButtonUi.module.scss";
-import { copyIcon } from "../../../svg/copyIcon";
+import { copyIcon } from "../../../svg/index";
 
 export function copyButtonUi() {
   return `

@@ -1,6 +1,6 @@
 import { addFileUi } from "./index";
 import styles from "./homeUi.module.scss";
-import { bgDeco } from "../svg/bgDeco";
+import { bgDeco } from "../svg/index";
 
 export function homeUi() {
   return `

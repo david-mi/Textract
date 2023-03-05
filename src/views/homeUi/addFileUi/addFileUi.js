@@ -1,5 +1,5 @@
 import styles from "./addFileUi.module.scss";
-import { uploadIcon, uploadIconGradient } from "../../svg";
+import { uploadIcon, uploadIconGradient } from "../../svg/index";
 import { errorUi } from "./errorUi/errorUi";
 
 export function addFileUi() {
