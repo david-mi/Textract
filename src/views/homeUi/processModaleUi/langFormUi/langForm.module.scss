@@ -1,0 +1,14 @@
+.langForm {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  label {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  select {
+    font-size: 1.2rem;
+  }
+}

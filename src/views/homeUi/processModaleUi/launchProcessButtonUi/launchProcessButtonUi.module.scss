@@ -1,0 +1,20 @@
+.submit {
+  position: relative;
+  grid-area: submit;
+  padding: 15px 25px;
+  min-width: 200px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  background-image: var(--clr-gradient);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 200ms;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

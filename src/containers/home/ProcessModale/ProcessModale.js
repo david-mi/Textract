@@ -11,7 +11,7 @@ export class ProcessModale {
     this.processModale = document.getElementById("modale");
     this.closeModaleButton = document.getElementById("closeModale");
     this.closeModaleButton.addEventListener("click", this.closeProcessModale.bind(this));
-    this.submitPictureButton = document.getElementById("submit-picture");
+    this.submitPictureButton = document.getElementById("launch-process");
     this.submitPictureButton.addEventListener("click", this.handleSubmitPicture.bind(this));
     this.textPictureElement = document.getElementById("text-picture");
     this.langSelect = document.getElementById("lang");
