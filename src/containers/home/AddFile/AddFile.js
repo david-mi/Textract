@@ -7,7 +7,7 @@ export class AddFile {
     this.labelFile = document.querySelector("label[for='file']");
     this.labelFile.addEventListener("mouseenter", this.handleLabelMouseEnter.bind(this));
     this.labelFile.addEventListener("mouseleave", this.handleLabelMouseLeave.bind(this));
-    this.errorElement = document.getElementById("error_file");
+    this.errorElement = document.getElementById("error-file");
   }
 
   displayError(error) {

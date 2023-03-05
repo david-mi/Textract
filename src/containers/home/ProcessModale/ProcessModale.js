@@ -9,7 +9,7 @@ export class ProcessModale {
     this.fileSrc = URL.createObjectURL(file);
     this.displayProcessModale();
     this.processModale = document.getElementById("modale");
-    this.closeModaleButton = document.getElementById("closeModale");
+    this.closeModaleButton = document.getElementById("close-modale");
     this.closeModaleButton.addEventListener("click", this.closeProcessModale.bind(this));
     this.submitPictureButton = document.getElementById("launch-process");
     this.submitPictureButton.addEventListener("click", this.handleSubmitPicture.bind(this));

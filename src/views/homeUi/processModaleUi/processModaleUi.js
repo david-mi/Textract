@@ -8,7 +8,7 @@ import { launchProcessButtonUi } from "./launchProcessButtonUi/launchProcessButt
 export const processModaleUi = (imageSrc) => {
   return `
     <div class=${styles.modale} id="modale">
-      ${closeButtonUi("closeModale")}
+      ${closeButtonUi("close-modale")}
       ${progressUi()}
       ${langFormUi()}
       ${imageUi(imageSrc)}
