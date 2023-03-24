@@ -5,7 +5,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/app.js"),
+  entry: path.resolve(__dirname, "src/app.ts"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js"
@@ -13,11 +13,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        },
+        test: /\.ts/,
+        exclude: /(node_modules)/,
+        use: ['ts-loader'],
       },
       {
         test: /\.scss$/i,
