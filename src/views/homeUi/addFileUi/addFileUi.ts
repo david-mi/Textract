@@ -7,8 +7,8 @@ export function addFileUi() {
   <form class=${styles.addFileForm}>
     <input type="file" accept="jpg, jpeg, png, webp" id="file">
     <label for="file">
-      ${uploadIcon(styles.icon)}
-      ${uploadIconGradient(styles.icon)}
+      ${uploadIcon()}
+      ${uploadIconGradient()}
     </label>
     ${errorUi()}
   </form>

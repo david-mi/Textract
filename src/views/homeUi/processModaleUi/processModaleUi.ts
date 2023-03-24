@@ -5,7 +5,7 @@ import { langFormUi } from "./langFormUi/langFormUi";
 import { imageUi } from "./imageUi/imageUi";
 import { launchProcessButtonUi } from "./launchProcessButtonUi/launchProcessButtonUi";
 
-export const processModaleUi = (imageSrc) => {
+export const processModaleUi = (imageSrc: string) => {
   return `
     <div class=${styles.modale} id="modale">
       ${closeButtonUi("close-modale")}

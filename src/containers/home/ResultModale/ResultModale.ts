@@ -1,18 +1,26 @@
 import { resultModaleUi } from "../../../views/homeUi/resultModaleUi/resultModaleUi";
 
 export class ResultModale {
-  constructor({ paragraphs, text }) {
-    this.paragraphs = paragraphs;
+  paragraphs: Tesseract.Paragraph[] | null
+  textResult: string
+  resultModale: HTMLElement
+  closeResultModaleButton: HTMLButtonElement
+  copyButton: HTMLButtonElement
+  copiedElement: HTMLElement
+  resultText: HTMLElement
+  copiedElementTimeout: null | NodeJS.Timeout = null
+
+  constructor({ paragraphs, text }: Tesseract.Page) {
+    this.paragraphs = paragraphs
     this.textResult = text;
     this.displayResultModale();
-    this.resultModale = document.getElementById("result-modale");
-    this.closeResultModaleButton = document.getElementById("close-result-modale");
+    this.resultModale = document.getElementById("result-modale")!;
+    this.closeResultModaleButton = document.getElementById("close-result-modale") as HTMLButtonElement;
     this.closeResultModaleButton.addEventListener("click", this.handleCloseResultModale.bind(this));
-    this.copyButton = document.getElementById("copy-button");
+    this.copyButton = document.getElementById("copy-button") as HTMLButtonElement;
     this.copyButton.addEventListener("click", this.handleCopy.bind(this));
-    this.copiedElement = document.getElementById("copied-text-alert");
-    this.resultText = document.getElementById("result-text");
-    this.copiedElementTimeout = null;
+    this.copiedElement = document.getElementById("copied-text-alert")!;
+    this.resultText = document.getElementById("result-text")!;
   }
 
   async handleCopy() {
@@ -39,7 +47,9 @@ export class ResultModale {
   }
 
   displayResultModale() {
-    const main = document.querySelector("main");
-    main.insertAdjacentHTML("beforeend", resultModaleUi(this.paragraphs));
+    const main = document.querySelector("main")!;
+    if (this.paragraphs !== null) {
+      main.insertAdjacentHTML("beforeend", resultModaleUi(this.paragraphs));
+    }
   }
 }

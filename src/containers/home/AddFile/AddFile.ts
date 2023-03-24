@@ -1,18 +1,21 @@
 import { ProcessModale } from "../ProcessModale/ProcessModale";
 
 export class AddFile {
+  fileInput = document.querySelector<HTMLInputElement>("input[type='file']")!;
+  labelFile = document.querySelector<HTMLLabelElement>("label[for='file']")!;
+  errorElement = document.getElementById("error-file")!;
+
   constructor() {
-    this.fileInput = document.querySelector("input[type='file']");
     this.fileInput.addEventListener("change", this.handleFileInput.bind(this));
-    this.labelFile = document.querySelector("label[for='file']");
     this.labelFile.addEventListener("mouseenter", this.handleLabelMouseEnter.bind(this));
     this.labelFile.addEventListener("mouseleave", this.handleLabelMouseLeave.bind(this));
-    this.errorElement = document.getElementById("error-file");
   }
 
-  displayError(error) {
+  displayError(error: Error | unknown) {
     console.error(error);
-    this.errorElement.textContent = error.message;
+    if (error instanceof Error) {
+      this.errorElement.textContent = error.message;
+    }
   }
 
   handleLabelMouseEnter() {
@@ -23,19 +26,21 @@ export class AddFile {
     document.body.classList.remove("hover-form");
   }
 
-  handleFileInput({ target }) {
-    const addedFile = target.files[0];
+  handleFileInput({ target }: Event) {
+    const addedFile = (target as HTMLInputElement).files;
+    if (!addedFile || addedFile.length === 0) return
+
     try {
-      this.checkFileValidity(addedFile);
+      this.checkFileValidity(addedFile[0]);
+      new ProcessModale(addedFile[0]);
       this.reset();
-      new ProcessModale(addedFile);
     } catch (error) {
       this.reset();
       this.displayError(error);
     }
   }
 
-  checkFileValidity(file) {
+  checkFileValidity(file: File) {
     const mimeTypes = ["image/png", "image/jpeg", "image/jpg", "image/webp"];
     const addedFileMimeType = file.type;
     const isMimeTypeAccepted = mimeTypes.includes(addedFileMimeType);

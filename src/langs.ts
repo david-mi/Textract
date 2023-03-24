@@ -1,6 +1,31 @@
 const navigatorLanguage = navigator.language;
 
-export const lang = {
+export interface ProcessState {
+  "loading tesseract core": string,
+  "initializing tesseract": string,
+  "initialized tesseract": string,
+  "loading language traineddata": string,
+  "loading language traineddata (from cache)": string,
+  "loaded language traineddata": string,
+  "initializing api": string,
+  "initialized api": string,
+  "recognizing text": string
+}
+
+interface Lang {
+  [props: string]: {
+    processModale: {
+      processState: ProcessState,
+      choseLang: string,
+      selectOptions: {
+        [props: string]: string
+      },
+      sendButton: string
+    }
+  }
+}
+
+export const lang: Lang = {
   "fr-FR": {
     processModale: {
       processState: {

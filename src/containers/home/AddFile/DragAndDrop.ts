@@ -10,24 +10,26 @@ export class DragAndDrop extends Paste {
     this.labelFile.addEventListener("drop", this.handleDrop.bind(this));
   }
 
-  handleDragEnter(event) {
+  handleDragEnter(event: DragEvent) {
     event.preventDefault();
     this.handleLabelMouseEnter();
   }
 
-  handleDragOver(event) {
+  handleDragOver(event: DragEvent) {
     event.preventDefault();
   }
 
-  handleDragLeave(event) {
+  handleDragLeave(event: DragEvent) {
     event.preventDefault();
     this.handleLabelMouseLeave();
   }
 
-  handleDrop(event) {
+  handleDrop(event: DragEvent) {
     event.preventDefault();
-    const files = event.dataTransfer.files;
+    const { dataTransfer } = event
 
+    if (dataTransfer === null) return
+    const files = dataTransfer.files;
     if (files.length === 0) return;
 
     this.fileInput.files = files;

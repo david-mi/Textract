@@ -23,6 +23,9 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new ESLintPlugin(),
