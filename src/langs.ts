@@ -21,11 +21,14 @@ interface Lang {
         [props: string]: string
       },
       sendButton: string
+    },
+    resultModale: {
+      clipboardAlert: string
     }
   }
 }
 
-export const lang: Lang = {
+const lang: Lang = {
   "fr-FR": {
     processModale: {
       processState: {
@@ -45,6 +48,9 @@ export const lang: Lang = {
         "fra": "Français"
       },
       sendButton: "Envoyer"
+    },
+    resultModale: {
+      clipboardAlert: "Ajouté au presse papier"
     }
   },
 
@@ -67,6 +73,9 @@ export const lang: Lang = {
         "fra": "French"
       },
       sendButton: "Send"
+    },
+    resultModale: {
+      clipboardAlert: "Added to clipboard"
     }
   }
 };
