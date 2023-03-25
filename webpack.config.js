@@ -24,6 +24,11 @@ module.exports = {
     ]
   },
   resolve: {
+    alias: {
+      "@langs": path.resolve(__dirname, "src/langs"),
+      "@views": path.resolve(__dirname, "src/views"),
+      "@containers": path.resolve(__dirname, "src/containers")
+    },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   plugins: [

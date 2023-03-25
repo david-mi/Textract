@@ -1,8 +1,8 @@
-import { processModaleUi } from "../../../views/homeUi/processModaleUi/processModaleUi";
+import { processModaleUi } from "@views/homeUi/processModaleUi/processModaleUi";
 import { ResultModale } from "../ResultModale/ResultModale";
 import { createWorker } from "tesseract.js";
-import { langConfig } from "../../../langs";
-import { ProcessState } from "../../../langs";
+import { langConfig } from "@langs";
+import { ProcessState } from "@langs";
 
 export class ProcessModale {
   processModale: HTMLElement

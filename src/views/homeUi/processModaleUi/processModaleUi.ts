@@ -1,5 +1,5 @@
 import styles from "./processModaleUi.module.scss";
-import { closeButtonUi } from "../../common/closeButtonUi/closeButtonUi";
+import { closeButtonUi } from "@views/common/closeButtonUi/closeButtonUi";
 import { progressUi } from "./progressUi/progressUi";
 import { langFormUi } from "./langFormUi/langFormUi";
 import { imageUi } from "./imageUi/imageUi";

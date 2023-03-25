@@ -1,4 +1,4 @@
-import { langConfig } from "../../../../langs";
+import { langConfig } from "@langs";
 import styles from "./langForm.module.scss";
 
 export function langFormUi() {

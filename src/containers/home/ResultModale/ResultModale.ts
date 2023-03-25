@@ -1,4 +1,4 @@
-import { resultModaleUi } from "../../../views/homeUi/resultModaleUi/resultModaleUi";
+import { resultModaleUi } from "@views/homeUi/resultModaleUi/resultModaleUi";
 
 export class ResultModale {
   paragraphs: Tesseract.Paragraph[] | null

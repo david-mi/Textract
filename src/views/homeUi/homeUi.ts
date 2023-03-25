@@ -1,6 +1,6 @@
-import { addFileUi } from "./index";
+import { addFileUi } from "./";
 import styles from "./homeUi.module.scss";
-import { bgDeco } from "../svg/index";
+import { bgDeco } from "@views/svg";
 
 export function homeUi() {
   return `

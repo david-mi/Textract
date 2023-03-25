@@ -1,5 +1,5 @@
 import styles from "./resultModaleUi.module.scss";
-import { closeButtonUi } from "../../common/closeButtonUi/closeButtonUi";
+import { closeButtonUi } from "@views/common/closeButtonUi/closeButtonUi";
 import { textResultUi } from "./textResultUi/textResultUi";
 
 export function resultModaleUi(textParagraphs: Tesseract.Paragraph[]) {
