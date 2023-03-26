@@ -33,5 +33,9 @@
         fill: var(--clr-gradient);
       }
     }
+
+    &:disabled {
+      background-color: grey;
+    }
   }
 }

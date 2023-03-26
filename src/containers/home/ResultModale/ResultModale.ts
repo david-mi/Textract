@@ -36,12 +36,18 @@ export class ResultModale {
       this.copiedElementTimeout = null;
     }
 
+    this.copyButton.disabled = true
+    this.resultText.style.pointerEvents = "none"
+    this.resultText.style.userSelect = "none"
     this.overflowWrapper.style.filter = "blur(3px)"
     this.copiedElement.style.display = "grid";
     this.copiedElementTimeout = setTimeout(this.hideCopiedElement.bind(this), 1800);
   }
 
   hideCopiedElement() {
+    this.copyButton.disabled = false
+    this.resultText.style.pointerEvents = "auto"
+    this.resultText.style.userSelect = "auto"
     this.overflowWrapper.style.filter = "none"
     this.copiedElement.style.display = "none";
   }
