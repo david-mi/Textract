@@ -36,6 +36,7 @@
 
     &:disabled {
       background-color: grey;
+      pointer-events: none;
     }
   }
 }

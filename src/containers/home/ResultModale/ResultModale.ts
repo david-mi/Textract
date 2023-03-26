@@ -6,6 +6,7 @@ export class ResultModale {
   resultModale: HTMLElement
   closeResultModaleButton: HTMLButtonElement
   copyButton: HTMLButtonElement
+  copyButtonContainer: HTMLButtonElement
   copiedElement: HTMLElement
   resultText: HTMLElement
   copiedElementTimeout: null | NodeJS.Timeout = null
@@ -20,6 +21,7 @@ export class ResultModale {
     this.closeResultModaleButton.addEventListener("click", this.handleCloseResultModale.bind(this));
     this.copyButton = document.getElementById("copy-button") as HTMLButtonElement;
     this.copyButton.addEventListener("click", this.handleCopy.bind(this));
+    this.copyButtonContainer = document.getElementById("copy-button-container") as HTMLButtonElement;
     this.copiedElement = document.getElementById("copied-text-alert")!;
     this.resultText = document.getElementById("result-text")!;
     this.overflowWrapper = document.getElementById("overflow-wrapper")!
@@ -36,8 +38,8 @@ export class ResultModale {
       this.copiedElementTimeout = null;
     }
 
+    this.copyButtonContainer.style.backdropFilter = "none"
     this.copyButton.disabled = true
-    this.resultText.style.pointerEvents = "none"
     this.resultText.style.userSelect = "none"
     this.overflowWrapper.style.filter = "blur(3px)"
     this.copiedElement.style.display = "grid";
@@ -45,8 +47,8 @@ export class ResultModale {
   }
 
   hideCopiedElement() {
+    this.copyButtonContainer.style.backdropFilter = "blur(3px)"
     this.copyButton.disabled = false
-    this.resultText.style.pointerEvents = "auto"
     this.resultText.style.userSelect = "auto"
     this.overflowWrapper.style.filter = "none"
     this.copiedElement.style.display = "none";
