@@ -6,6 +6,6 @@
   display: grid;
   place-items: center;
   gap: 20px;
-  padding-block: 10px;
+  padding-block: clamp(5px, 1vw, 10px) clamp(10px, 2vw, 20px);
   padding-inline: 10px;
 }

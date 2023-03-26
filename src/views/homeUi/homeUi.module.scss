@@ -21,11 +21,15 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: clamp(1000px, 300vw, 300vw);
+    min-width: 2000px;
+    width: 100%;
+    min-height: 100%;
     z-index: -1;
 
     path {
       fill: rgb(255, 255, 255);
       transition: 400ms;
+      transform-origin: center;
     }
   }
 }
