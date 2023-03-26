@@ -12,8 +12,10 @@ export function textResultUi(textParagraphs: Tesseract.Paragraph[]) {
   return `
     <div class=${styles.text} id="result-text">
       ${copyButtonUi()}
-      ${textToShow}
       ${copiedTextAlertUi()}
+      <div class=${styles.overflowWrapper} id="overflow-wrapper">
+      ${textToShow}
+      </div>
     </div>
   `;
 }

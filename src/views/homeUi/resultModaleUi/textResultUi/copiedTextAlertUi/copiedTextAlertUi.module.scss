@@ -1,7 +1,9 @@
 .copiedTextAlert {
   display: none;
-  position: fixed;
+  position: sticky;
   inset: 0;
+  top: 50%;
+  height: 0;
   backdrop-filter: blur(5px);
   place-items: center;
   font-weight: bold;

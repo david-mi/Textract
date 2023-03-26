@@ -9,6 +9,7 @@ export class ResultModale {
   copiedElement: HTMLElement
   resultText: HTMLElement
   copiedElementTimeout: null | NodeJS.Timeout = null
+  overflowWrapper: HTMLElement
 
   constructor({ paragraphs, text }: Tesseract.Page) {
     this.paragraphs = paragraphs
@@ -21,6 +22,7 @@ export class ResultModale {
     this.copyButton.addEventListener("click", this.handleCopy.bind(this));
     this.copiedElement = document.getElementById("copied-text-alert")!;
     this.resultText = document.getElementById("result-text")!;
+    this.overflowWrapper = document.getElementById("overflow-wrapper")!
   }
 
   async handleCopy() {
@@ -34,11 +36,13 @@ export class ResultModale {
       this.copiedElementTimeout = null;
     }
 
+    this.overflowWrapper.style.filter = "blur(3px)"
     this.copiedElement.style.display = "grid";
     this.copiedElementTimeout = setTimeout(this.hideCopiedElement.bind(this), 1800);
   }
 
   hideCopiedElement() {
+    this.overflowWrapper.style.filter = "none"
     this.copiedElement.style.display = "none";
   }
 

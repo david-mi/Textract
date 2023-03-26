@@ -14,4 +14,11 @@
   font-size: 1.1rem;
   overflow-x: hidden;
   margin-bottom: auto;
+  transition: 2.5s forwards cubic-bezier(0.09, 1.08, 0.88, 1.08);
+}
+
+.overflowWrapper {
+  position: relative;
+  z-index: -1;
+  transition: 400ms forwards cubic-bezier(0.09, 1.08, 0.88, 1.08);
 }
