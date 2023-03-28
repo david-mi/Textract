@@ -1,7 +1,10 @@
 .main {
+  padding-inline: clamp(10px, 2vw, 100px);
+  padding-top: 10px;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: auto repeat(3, 1fr);
   grid-template-areas:
+    "help"
     "title"
     "form"
     ".";

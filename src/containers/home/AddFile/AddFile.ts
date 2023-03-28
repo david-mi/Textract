@@ -1,14 +1,22 @@
 import { ProcessModale } from "../ProcessModale/ProcessModale";
+import helpStyle from "@views/homeUi/helpUi/helpUi.module.scss"
 
 export class AddFile {
   fileInput = document.querySelector<HTMLInputElement>("input[type='file']")!;
   labelFile = document.querySelector<HTMLLabelElement>("label[for='file']")!;
   errorElement = document.getElementById("error-file")!;
+  helpContent = document.getElementById("help")!
+  helpButton = document.getElementById("help-button")!
 
   constructor() {
     this.fileInput.addEventListener("change", this.handleFileInput.bind(this));
     this.labelFile.addEventListener("mouseenter", this.handleLabelMouseEnter.bind(this));
     this.labelFile.addEventListener("mouseleave", this.handleLabelMouseLeave.bind(this));
+    this.helpButton.addEventListener("click", this.toggleHelp.bind(this))
+  }
+
+  toggleHelp() {
+    this.helpContent.classList.toggle(helpStyle.hide)
   }
 
   displayError(error: Error | unknown) {
