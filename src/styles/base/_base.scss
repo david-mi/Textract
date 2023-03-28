@@ -14,6 +14,10 @@ body {
   min-height: 100vh;
 
   &.hover-form {
+    #help-button svg path {
+      fill: var(--clr-gradient);
+    }
+
     .main-title {
       background: var(--clr-gradient);
       background-clip: text;

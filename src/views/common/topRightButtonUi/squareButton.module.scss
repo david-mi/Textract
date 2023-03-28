@@ -1,0 +1,28 @@
+.button {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  margin-left: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 8px;
+  transition: 200ms;
+  padding: 5px;
+
+  &:active {
+    transform: scale(0.8);
+  }
+
+  &:hover svg path {
+    fill: var(--clr-gradient);
+  }
+
+  svg {
+    width: clamp(30px, 8vh - 4vw, 40px);
+    height: clamp(30px, 8vh - 4vw, 40px);
+    path {
+      fill: white;
+    }
+  }
+}

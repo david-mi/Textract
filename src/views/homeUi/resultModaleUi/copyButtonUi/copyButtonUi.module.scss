@@ -8,35 +8,9 @@
   position: sticky;
   top: 0;
   backdrop-filter: blur(3px);
-  height: clamp(50px, 8vh - 4vw, 70px);
+  height: clamp(30px, 8vh - 4vw, 40px);
 
-  .copy-button {
-    display: grid;
-    place-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: black;
-    transition: 300ms;
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 5px;
-    width: clamp(50px, 8vh - 4vw, 70px);
-    height: clamp(50px, 8vh - 4vw, 70px);
-
-    path {
-      fill: white;
-    }
-
-    &:hover {
-      path {
-        fill: var(--clr-gradient);
-      }
-    }
-
-    &:disabled {
-      background-color: grey;
-      pointer-events: none;
-    }
+  button {
+    margin: auto;
   }
 }

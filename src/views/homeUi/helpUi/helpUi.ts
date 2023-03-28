@@ -1,12 +1,11 @@
 import styles from "./helpUi.module.scss"
 import { helpIcon } from "@views/svg/helpIcon"
+import { topRightButtonUi } from "@views/common/topRightButtonUi/squareButton"
 
 export function helpUi() {
   return `
   <div class=${styles.help}>
-    <button id="help-button">
-      ${helpIcon()}
-    </button>
+    ${topRightButtonUi(helpIcon, "help-button")}
     <div id="help" class="${styles.content} ${styles.hide}">
       <h2>Ajoutez votre fichier</h2>
       <ul>
