@@ -1,5 +1,6 @@
 import { ProcessModale } from "../ProcessModale/ProcessModale";
 import helpContentStyle from "@views/homeUi/helpUi/content/content.module.scss"
+import backgroundContentStyle from "@views/homeUi/helpUi/background/background.module.scss"
 
 export class AddFile {
   fileInput = document.querySelector<HTMLInputElement>("input[type='file']")!;
@@ -7,16 +8,19 @@ export class AddFile {
   errorElement = document.getElementById("error-file")!;
   helpContent = document.getElementById("help-content")!
   helpButton = document.getElementById("help-button")!
+  helpBackground = document.getElementById("help-background")!
 
   constructor() {
     this.fileInput.addEventListener("change", this.handleFileInput.bind(this));
     this.labelFile.addEventListener("mouseenter", this.handleLabelMouseEnter.bind(this));
     this.labelFile.addEventListener("mouseleave", this.handleLabelMouseLeave.bind(this));
     this.helpButton.addEventListener("click", this.toggleHelp.bind(this))
+    this.helpBackground.addEventListener("click", this.toggleHelp.bind(this))
   }
 
   toggleHelp() {
     this.helpContent.classList.toggle(helpContentStyle.hide)
+    this.helpBackground.classList.toggle(backgroundContentStyle.hide)
   }
 
   displayError(error: Error | unknown) {
