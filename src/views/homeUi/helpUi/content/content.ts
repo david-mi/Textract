@@ -1,26 +1,28 @@
 import styles from "./content.module.scss"
+import { langConfig } from "@langs"
+const { add, choose, wait, retrieve } = langConfig.help
 
 export function content() {
   return `
   <div id="help-content" class="${styles.content} ${styles.hide}">
-    <h2>1. Ajoutez une image</h2>
+    <h2>1. ${add.title}</h2>
     <ul>
-      <li>Collez directement votre fichier sur la page (Chrome seulement)</li>
-      <li><b>Ou</b> faites un glisser / déposer</li>
-      <li><b>Ou</b> cliquez sur le bouton d'ajout et choisissez votre fichier</li>
+      <li>${add["1"]}</li>
+      <li>${add["2"]}</li>
+      <li>${add["3"]}</li>
     </ul>
-    <h2>2. Choisissez une langue</h2>
+    <h2>2. ${choose.title}</h2>
     <ul>
-      <li>Choisissez la langue la plus adaptée au texte de votre image</li>
-      <li>Validez</li>
+      <li>${choose["1"]}</li>
+      <li>${choose["2"]}</li>
     </ul>
-    <h2>3. Patientez</h2>
+    <h2>3. ${wait.title}</h2>
     <ul>
-      <li>Le traitement peut prendre un peu de temps si le fichier est lourd et / ou si vous arrivez pour la première fois sur le site</li>
+      <li>${wait["1"]}</li>
     </ul>
-    <h2>4. Copiez le texte extrait</h2>
+    <h2>4. ${retrieve.title}</h2>
     <ul>
-      <li>Cliquez sur le bouton de copie pour ajouter le texte au presse papier</li>
+      <li>${retrieve["1"]}</li>
     </ul>
   </div>
   `
