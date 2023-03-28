@@ -1,11 +1,11 @@
 import { ProcessModale } from "../ProcessModale/ProcessModale";
-import helpStyle from "@views/homeUi/helpUi/helpUi.module.scss"
+import helpContentStyle from "@views/homeUi/helpUi/content/content.module.scss"
 
 export class AddFile {
   fileInput = document.querySelector<HTMLInputElement>("input[type='file']")!;
   labelFile = document.querySelector<HTMLLabelElement>("label[for='file']")!;
   errorElement = document.getElementById("error-file")!;
-  helpContent = document.getElementById("help")!
+  helpContent = document.getElementById("help-content")!
   helpButton = document.getElementById("help-button")!
 
   constructor() {
@@ -16,7 +16,7 @@ export class AddFile {
   }
 
   toggleHelp() {
-    this.helpContent.classList.toggle(helpStyle.hide)
+    this.helpContent.classList.toggle(helpContentStyle.hide)
   }
 
   displayError(error: Error | unknown) {
