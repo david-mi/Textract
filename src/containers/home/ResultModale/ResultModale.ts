@@ -56,6 +56,7 @@ export class ResultModale {
 
   handleCloseResultModale() {
     this.resultModale.remove();
+    document.dispatchEvent(new Event("addPaste"))
   }
 
   displayResultModale() {

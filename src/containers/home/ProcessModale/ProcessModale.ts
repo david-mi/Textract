@@ -20,6 +20,7 @@ export class ProcessModale {
   file: File
 
   constructor(file: File) {
+    document.dispatchEvent(new Event("removePaste"))
     this.file = file
     this.fileSrc = URL.createObjectURL(this.file);
     this.displayProcessModale();
@@ -45,8 +46,12 @@ export class ProcessModale {
     main.insertAdjacentHTML("beforeend", processModaleUi(this.fileSrc));
   }
 
-  closeProcessModale() {
+  closeProcessModale(event?: MouseEvent) {
     this.processModale.remove();
+
+    if (event) {
+      document.dispatchEvent(new Event("addPaste"))
+    }
   }
 
   saveLangToStorage() {
