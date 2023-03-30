@@ -84,7 +84,7 @@ const lang: Lang = {
         "initialized api": "API initialisée",
         "recognizing text": "Reconnaissance du texte..."
       },
-      choseLang: "Langue",
+      choseLang: "Choisir une langue",
       selectError: "Choisissez une langue valide",
       selectOptions: trainedLangsListFr,
       sendButton: "Envoyer"
@@ -128,7 +128,7 @@ const lang: Lang = {
         "initialized api": "Initialized api",
         "recognizing text": "Recognizing text"
       },
-      choseLang: "Lang",
+      choseLang: "Chose a lang",
       selectError: "Choose a valid lang",
       selectOptions: trainedLangsListEng,
       sendButton: "Send"
