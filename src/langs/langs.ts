@@ -83,7 +83,7 @@ const lang: Lang = {
         "initialized api": "API initialisée",
         "recognizing text": "Reconnaissance du texte..."
       },
-      choseLang: "Langage de conversion",
+      choseLang: "Langue",
       selectOptions: trainedLangsListFr,
       sendButton: "Envoyer"
     },
@@ -126,7 +126,7 @@ const lang: Lang = {
         "initialized api": "Initialized api",
         "recognizing text": "Recognizing text"
       },
-      choseLang: "Convert language",
+      choseLang: "Lang",
       selectOptions: trainedLangsListEng,
       sendButton: "Send"
     },
