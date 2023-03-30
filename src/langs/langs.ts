@@ -37,6 +37,7 @@ interface Lang {
     processModale: {
       processState: ProcessState,
       choseLang: string,
+      selectError: string,
       selectOptions: {
         [props: string]: string
       },
@@ -84,6 +85,7 @@ const lang: Lang = {
         "recognizing text": "Reconnaissance du texte..."
       },
       choseLang: "Langue",
+      selectError: "Choisissez une langue valide",
       selectOptions: trainedLangsListFr,
       sendButton: "Envoyer"
     },
@@ -127,6 +129,7 @@ const lang: Lang = {
         "recognizing text": "Recognizing text"
       },
       choseLang: "Lang",
+      selectError: "Choose a valid lang",
       selectOptions: trainedLangsListEng,
       sendButton: "Send"
     },

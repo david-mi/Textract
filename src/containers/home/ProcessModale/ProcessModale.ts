@@ -10,6 +10,7 @@ export class ProcessModale {
   submitPictureButton: HTMLButtonElement;
   textPictureElement: HTMLElement;
   langSelect: HTMLSelectElement;
+  langSelectErrorElement: HTMLElement;
   progressElement: HTMLElement;
   progressValueElement: HTMLElement;
   animationElement: HTMLElement;
@@ -30,6 +31,7 @@ export class ProcessModale {
     this.submitPictureButton = document.getElementById("launch-process") as HTMLButtonElement
     this.textPictureElement = document.getElementById("text-picture")!
     this.langSelect = document.getElementById("lang") as HTMLSelectElement
+    this.langSelectErrorElement = document.getElementById("lang-error")!
     this.progressElement = document.getElementById("progress")!
     this.progressValueElement = document.getElementById("progress-value")!
     this.animationElement = document.getElementById("animation")!
@@ -37,7 +39,6 @@ export class ProcessModale {
 
     this.closeModaleButton.addEventListener("click", this.closeProcessModale.bind(this));
     this.submitPictureButton.addEventListener("click", this.handleSubmitPicture.bind(this));
-    this.langSelect.addEventListener("change", this.saveLangToStorage.bind(this));
     this.displayLangFromStorage();
   }
 
@@ -60,9 +61,17 @@ export class ProcessModale {
 
   displayLangFromStorage() {
     const prefLang = localStorage.getItem("prefLang");
-    if (prefLang) {
+    if (prefLang == null) return
+
+    if (this.isLangCodeValid(prefLang)) {
       this.langSelect.value = prefLang;
+    } else {
+      localStorage.removeItem("prefLang")
     }
+  }
+
+  isLangCodeValid(code: string) {
+    return langConfig.processModale.selectOptions[code] !== undefined
   }
 
   handleImageProcessing({ progress, status }: { progress: number, status: keyof ProcessState }) {
@@ -85,9 +94,19 @@ export class ProcessModale {
     this.progressElement.style.display = "flex";
   }
 
+  handleSelectError(isValid: boolean) {
+    this.langSelectErrorElement.innerText = isValid
+      ? ""
+      : langConfig.processModale.selectError
+  }
+
   async handleSubmitPicture() {
     const chosenLang = this.langSelect.value;
+    const isLangValid = this.isLangCodeValid(chosenLang)
+    this.handleSelectError(isLangValid)
+    if (isLangValid === false) return
 
+    this.saveLangToStorage()
     this.displayProcessingProgress();
 
     const options = { logger: this.handleImageProcessing.bind(this) };

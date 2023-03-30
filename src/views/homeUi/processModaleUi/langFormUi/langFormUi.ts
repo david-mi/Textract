@@ -5,10 +5,11 @@ const { selectOptions } = langConfig.processModale
 export function langFormUi() {
   return `
     <form class=${styles.langForm}>
-      <label for="lang">${langConfig.processModale.choseLang}:</label>
-      <select id="lang">
+      <select id="lang" required>
+        <option hidden value="">${langConfig.processModale.choseLang}</option>
         ${showOptions(selectOptions)}
       </select>
+      <small id="lang-error" class=${styles.error}></small>
     </form>
   `;
 }
@@ -17,7 +18,6 @@ function showOptions(selectOptions: { [props: string]: string }) {
   let optionsHtml = ""
 
   for (const code in selectOptions) {
-    console.log(code, selectOptions[code])
     optionsHtml += `<option value=${code}>${selectOptions[code]}</option>`
   }
 
