@@ -25,7 +25,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@langs": path.resolve(__dirname, "src/langs"),
+      "@langs": path.resolve(__dirname, "src/langs/langs"),
       "@views": path.resolve(__dirname, "src/views"),
       "@containers": path.resolve(__dirname, "src/containers")
     },
