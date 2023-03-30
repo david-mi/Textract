@@ -1,3 +1,5 @@
+import { trainedLangsListEng, trainedLangsListFr } from "@views/homeUi/processModaleUi/langFormUi/trainedLangs";
+
 const navigatorLanguage = navigator.language;
 
 export interface ProcessState {
@@ -82,10 +84,7 @@ const lang: Lang = {
         "recognizing text": "Reconnaissance du texte..."
       },
       choseLang: "Langage de conversion",
-      selectOptions: {
-        "eng": "Anglais",
-        "fra": "Français"
-      },
+      selectOptions: trainedLangsListFr,
       sendButton: "Envoyer"
     },
     resultModale: {
@@ -128,10 +127,7 @@ const lang: Lang = {
         "recognizing text": "Recognizing text"
       },
       choseLang: "Convert language",
-      selectOptions: {
-        "eng": "English",
-        "fra": "French"
-      },
+      selectOptions: trainedLangsListEng,
       sendButton: "Send"
     },
     resultModale: {
