@@ -1,7 +1,6 @@
 .text {
   display: flex;
   flex-direction: column;
-  flex: 1;
   position: relative;
   border-image: var(--clr-gradient) 1 5;
   border-style: solid;
