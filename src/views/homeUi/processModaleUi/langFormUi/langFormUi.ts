@@ -1,6 +1,7 @@
 import { langConfig } from "@langs";
 import styles from "./langForm.module.scss";
 const { selectOptions } = langConfig.processModale
+import type { TrainedLangs } from "./trainedLangs";
 
 export function langFormUi() {
   return `
@@ -14,12 +15,11 @@ export function langFormUi() {
   `;
 }
 
-function showOptions(selectOptions: { [props: string]: string }) {
-  let optionsHtml = ""
-
-  for (const code in selectOptions) {
-    optionsHtml += `<option value=${code}>${selectOptions[code]}</option>`
-  }
-
-  return optionsHtml
+function showOptions(selectOptions: TrainedLangs): string {
+  return Object
+    .entries(selectOptions)
+    .sort((a, b) => a[1].localeCompare(b[1]))
+    .reduce((html, [code, lang]) => {
+      return html += `<option value=${code}>${lang}</option>`
+    }, "")
 }

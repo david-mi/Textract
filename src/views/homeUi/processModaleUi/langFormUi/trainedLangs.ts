@@ -1,4 +1,8 @@
-export const trainedLangsListEng = {
+export interface TrainedLangs {
+  [code: string]: string
+}
+
+export const trainedLangsListEng: TrainedLangs = {
   "afr": "Afrikaans",
   "amh": "Amharic",
   "ara": "Arabic",
@@ -103,7 +107,7 @@ export const trainedLangsListEng = {
   "yid": "Yiddish"
 }
 
-export const trainedLangsListFr = {
+export const trainedLangsListFr: TrainedLangs = {
   "afr": "Afrikaans",
   "amh": "Amharique",
   "ara": "Arabe",
