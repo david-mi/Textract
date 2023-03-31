@@ -10,13 +10,6 @@
     ".";
   align-content: center;
 
-  .title {
-    grid-area: title;
-    font-size: clamp(50px, 6vw, 65px);
-    text-align: center;
-    align-self: center;
-  }
-
   .svg {
     position: absolute;
     left: 50%;
