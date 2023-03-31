@@ -10,7 +10,6 @@ export function langFormUi() {
         <option hidden value="">${langConfig.processModale.choseLang}</option>
         ${showOptions(selectOptions)}
       </select>
-      <small id="lang-error" class=${styles.error}></small>
     </form>
   `;
 }

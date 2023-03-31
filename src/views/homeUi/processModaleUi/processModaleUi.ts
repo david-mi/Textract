@@ -14,6 +14,7 @@ export const processModaleUi = (imageSrc: string) => {
       ${langFormUi()}
       ${imageUi(imageSrc)}
       ${launchProcessButtonUi()}
+      <small id="lang-error" class=${styles.error}></small>
     </div>
   `;
 };

@@ -1,4 +1,5 @@
 .modale {
+  position: relative;
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -11,4 +12,13 @@
   padding-inline: clamp(10px, 2vw, 100px);
   padding-top: 10px;
   padding-bottom: 50px;
+}
+
+.error {
+  position: absolute;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  color: red;
+  height: 30px;
 }
