@@ -12,8 +12,20 @@
   overflow: hidden;
 
   @keyframes slide {
-    to {
+    100% {
       transform: translateY(0);
+    }
+  }
+
+  @keyframes sliderev {
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gradient {
+    to {
+      background-position: right;
     }
   }
 
@@ -27,15 +39,28 @@
 
   span:not(.upper) {
     transform: translateY(100%);
-    animation: slide 600ms 400ms forwards ease-out;
+    animation: slide 900ms 100ms forwards cubic-bezier(0.77, 0.26, 0.46, 1.28);
   }
 
   .upper {
+    position: relative;
+    background: rgb(133, 255, 189);
+    background: linear-gradient(
+      90deg,
+      rgba(133, 255, 189, 1) 0%,
+      rgba(255, 251, 125, 1) 44%,
+      rgba(0, 0, 0, 1) 90%
+    );
+    background-size: 2000%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: left;
     position: relative;
     top: 0.09em;
     text-transform: uppercase;
     font-size: 0.8em;
     transform: translateY(-100%);
-    animation: slide 700ms 800ms forwards ease-out;
+    animation: gradient 1500ms ease-in-out 1000ms forwards,
+      slide 900ms 100ms forwards cubic-bezier(0.77, 0.26, 0.46, 1.28);
   }
 }
