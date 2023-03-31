@@ -4,6 +4,11 @@
   font-family: "Montserrat", sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   --clr-text: black;
   --clr-bg: white;
@@ -11,7 +16,8 @@ body {
   background-color: #85ffbd;
   --clr-gradient: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
   background-image: var(--clr-gradient);
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   &.hover-form {
     #help-button svg path {
@@ -49,7 +55,14 @@ body {
   }
 }
 
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   position: relative;
   overflow: hidden;
+  flex: 1;
 }
