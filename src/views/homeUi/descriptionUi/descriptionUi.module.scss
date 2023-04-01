@@ -1,0 +1,17 @@
+.description {
+  font-size: clamp(5rem, 8vw, 7rem);
+  position: relative;
+  grid-area: desc;
+  justify-self: center;
+  margin-bottom: 20px;
+
+  p {
+    position: relative;
+    font-size: 0.3em;
+    bottom: 0.7em;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+}

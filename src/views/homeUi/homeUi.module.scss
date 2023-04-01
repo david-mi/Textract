@@ -1,11 +1,13 @@
 .main {
+  flex: 1;
   padding-inline: clamp(10px, 2vw, 100px);
   padding-top: 10px;
   display: grid;
-  grid-template-rows: auto repeat(3, 1fr);
+  grid-template-rows: 1fr auto auto 300px 2fr;
   grid-template-areas:
     "help"
     "title"
+    "desc"
     "form"
     ".";
   align-content: center;

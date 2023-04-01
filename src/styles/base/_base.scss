@@ -32,6 +32,13 @@ body {
       -webkit-text-fill-color: transparent;
     }
 
+    .description p {
+      background: var(--clr-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .bg-deco path {
       fill: black;
     }
