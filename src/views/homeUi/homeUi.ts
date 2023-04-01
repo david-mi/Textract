@@ -5,11 +5,13 @@ import { bgDeco } from "@views/svg";
 export function homeUi() {
   return `
     <main class="${styles.main} description">
+      ${helpUi()}
       ${bgDeco(styles.svg)}
+      <div class=${styles.wrapper}>
       ${mainTitleUi()}
       ${descriptionUi()}
       ${addFileUi()}
-      ${helpUi()}
+      </div>
     </main>
   `;
 }

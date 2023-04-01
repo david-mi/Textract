@@ -1,17 +1,44 @@
 .description {
-  font-size: clamp(5rem, 8vw, 7rem);
+  font-size: clamp(3.5rem, 15vw, 5rem);
   position: relative;
-  grid-area: desc;
   justify-self: center;
   margin-bottom: 20px;
+
+  @keyframes fade {
+    to {
+      opacity: 1;
+    }
+  }
 
   p {
     position: relative;
     font-size: 0.3em;
-    bottom: 0.7em;
+    bottom: 10px;
+    opacity: 0;
+    animation: fade 1000ms 500ms forwards;
+  }
+
+  @keyframes gradient {
+    to {
+      background-position: right;
+    }
   }
 
   .bold {
+    background: rgb(133, 255, 189);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 5%,
+      rgba(133, 255, 189, 1) 10%,
+      rgba(255, 251, 125, 1) 44%,
+      rgba(0, 0, 0, 1) 90%
+    );
+    background-size: 2000%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: left;
     font-weight: bold;
+    animation: gradient 900ms ease-in-out 900ms forwards;
   }
 }

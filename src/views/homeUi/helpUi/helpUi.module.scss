@@ -1,6 +1,8 @@
 .help {
   display: flex;
   position: relative;
+  justify-self: flex-end;
+  align-self: flex-start;
 
   button {
     position: relative;
