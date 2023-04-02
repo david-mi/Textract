@@ -41,7 +41,7 @@
     position: relative;
     z-index: 9999;
     font-size: clamp(2rem, 6vw, 3rem);
-    color: black;
+    color: var(--clr-text);
     font-weight: bold;
   }
 }

@@ -40,12 +40,12 @@
 
   .upper {
     position: relative;
-    background: rgb(133, 255, 189);
+    background: var(--clr-gradient-left);
     background: linear-gradient(
       90deg,
-      rgba(133, 255, 189, 1) 0%,
-      rgba(255, 251, 125, 1) 44%,
-      rgba(0, 0, 0, 1) 90%
+      var(--clr-gradient-left) 0%,
+      var(--clr-gradient-right) 44%,
+      var(--clr-dark) 90%
     );
     background-size: 2000%;
     -webkit-background-clip: text;

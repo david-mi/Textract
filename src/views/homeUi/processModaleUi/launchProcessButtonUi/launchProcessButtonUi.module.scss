@@ -5,12 +5,11 @@
   min-width: 200px;
   font-weight: bold;
   font-size: 1.3rem;
-  background: black;
   color: white;
   border-radius: 10px;
   cursor: pointer;
   transition: 200ms;
-  background: black;
+  background: var(--clr-dark);
 
   &:hover {
     span {

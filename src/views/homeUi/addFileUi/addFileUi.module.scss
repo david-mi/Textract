@@ -33,7 +33,7 @@
       position: absolute;
       content: "";
       inset: var(--inset);
-      border: solid var(--border-width) black;
+      border: solid var(--border-width) var(--clr-dark);
       transition: 400ms;
     }
 
@@ -47,6 +47,10 @@
 
       &:nth-child(1) {
         z-index: 1;
+
+        path {
+          fill: var(--clr-dark);
+        }
       }
     }
   }
