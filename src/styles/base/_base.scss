@@ -17,7 +17,7 @@ body {
   );
   display: flex;
   flex-direction: column;
-  color: var(--clr-dark);
+  color: var(--clr-text);
 
   &.hover-form {
     #help-button svg path {

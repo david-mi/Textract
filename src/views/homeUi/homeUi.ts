@@ -3,7 +3,7 @@ import styles from "./homeUi.module.scss";
 
 export function homeUi() {
   return `
-    <main class="${styles.main} description">
+    <main class="${styles.main}">
       ${helpUi()}
       <div class=${styles.wrapper}>
       ${mainTitleUi()}
