@@ -1,6 +1,7 @@
 import { trainedLangsListEng, trainedLangsListFr } from "@views/homeUi/processModaleUi/langFormUi/trainedLangs";
 
-const navigatorLanguage = navigator.language;
+type LangDataProps = "fr" | "en"
+const navigatorLanguageFirstTwoLetters = navigator.language.slice(0, 2) as LangDataProps
 
 export interface ProcessState {
   "loading tesseract core": string,
@@ -14,43 +15,41 @@ export interface ProcessState {
   "recognizing text": string
 }
 
-interface Lang {
-  [props: string]: {
-    help: {
-      add: {
-        title: string,
-        [index: number]: string,
-      },
-      choose: {
-        title: string,
-        [index: number]: string,
-      }
-      wait: {
-        title: string,
-        [index: number]: string,
-      }
-      retrieve: {
-        title: string,
-        [index: number]: string,
-      }
-    }
-    processModale: {
-      processState: ProcessState,
-      choseLang: string,
-      selectError: string,
-      selectOptions: {
-        [props: string]: string
-      },
-      sendButton: string
+interface LangData {
+  help: {
+    add: {
+      title: string,
+      [index: number]: string,
     },
-    resultModale: {
-      clipboardAlert: string
+    choose: {
+      title: string,
+      [index: number]: string,
     }
+    wait: {
+      title: string,
+      [index: number]: string,
+    }
+    retrieve: {
+      title: string,
+      [index: number]: string,
+    }
+  }
+  processModale: {
+    processState: ProcessState,
+    choseLang: string,
+    selectError: string,
+    selectOptions: {
+      [props: string]: string
+    },
+    sendButton: string
+  },
+  resultModale: {
+    clipboardAlert: string
   }
 }
 
-const lang: Lang = {
-  "fr-FR": {
+const lang: Record<LangDataProps, LangData> = {
+  "fr": {
     help: {
       add: {
         title: "Ajouter une image",
@@ -94,7 +93,7 @@ const lang: Lang = {
     }
   },
 
-  "default": {
+  "en": {
     help: {
       add: {
         title: "Add an image",
@@ -139,4 +138,4 @@ const lang: Lang = {
   }
 };
 
-export const langConfig = lang[navigatorLanguage] || lang.default;
+export const langConfig = lang[navigatorLanguageFirstTwoLetters] || lang.en;
