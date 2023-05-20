@@ -1,16 +1,18 @@
 import styles from "./descriptionUi.module.scss"
+import { langConfig } from "@langs"
+const { description } = langConfig
 
 export function descriptionUi() {
   return `
   <div class="${styles.description} description">
     <p>
-      <span>A simple</span>
-      <span class=${styles.bold}>text extractor</span>
+      <span>${description[1]}</span>
+      <span class=${styles.bold}>${description[2]}</span>
     </p>
     <p>
-      <span>from</span>
-      <span class=${styles.bold}>image</span>
-      <span>tool</span>
+      <span>${description[3]}</span>
+      <span class=${styles.bold}>${description[4]}</span>
+      ${description[5] ? "<span>tool</span>" : ""}
     </p>
   </div>
   `

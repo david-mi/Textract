@@ -16,6 +16,13 @@ export interface ProcessState {
 }
 
 interface LangData {
+  description: {
+    1: string,
+    2: string,
+    3: string,
+    4: string,
+    5?: string
+  },
   help: {
     add: {
       title: string,
@@ -50,6 +57,12 @@ interface LangData {
 
 const lang: Record<LangDataProps, LangData> = {
   "fr": {
+    description: {
+      1: "Un simple outil pour",
+      2: "extraire du texte",
+      3: "à partir d'une",
+      4: "image"
+    },
     help: {
       add: {
         title: "Ajouter une image",
@@ -94,6 +107,13 @@ const lang: Record<LangDataProps, LangData> = {
   },
 
   "en": {
+    description: {
+      1: "A simple",
+      2: "text extractor",
+      3: "from",
+      4: "image",
+      5: "tool"
+    },
     help: {
       add: {
         title: "Add an image",
