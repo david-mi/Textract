@@ -1,8 +1,9 @@
 import { processModaleUi } from "@views/homeUi/processModaleUi/processModaleUi";
 import { ResultModale } from "../ResultModale/ResultModale";
-import { createWorker } from "tesseract.js";
+import { LoggerMessage, createWorker } from "tesseract.js";
 import { langConfig } from "@langs";
 import { ProcessState } from "@langs";
+import { WorkerOptions } from "tesseract.js";
 
 export class ProcessModale {
   processModale: HTMLElement
@@ -74,10 +75,10 @@ export class ProcessModale {
     return langConfig.processModale.selectOptions[code] !== undefined
   }
 
-  handleImageProcessing({ progress, status }: { progress: number, status: keyof ProcessState }) {
+  handleImageProcessing({ progress, status }: LoggerMessage) {
     if (this.status !== status) {
       this.status = status;
-      this.statusElement.innerText = langConfig.processModale.processState[status];
+      this.statusElement.innerText = langConfig.processModale.processState[status as keyof ProcessState];
     }
     if (status === "recognizing text") {
       const progression = (progress * 100).toFixed(2) + " %";
@@ -109,7 +110,7 @@ export class ProcessModale {
     this.saveLangToStorage()
     this.displayProcessingProgress();
 
-    const options = { logger: this.handleImageProcessing.bind(this) };
+    const options: Partial<WorkerOptions> = { logger: this.handleImageProcessing.bind(this) };
     const worker = await createWorker(options);
     await worker.loadLanguage(chosenLang);
     await worker.initialize(chosenLang);
