@@ -1,7 +1,7 @@
 import { processModaleUi } from "@views/homeUi/processModaleUi/processModaleUi";
 import { ResultModale } from "../ResultModale/ResultModale";
 import { LoggerMessage, createWorker } from "tesseract.js";
-import { langConfig } from "@langs";
+import { litteralToIso6391, langConfig } from "@langs";
 import { ProcessState, iso6391toIso6392 } from "@langs";
 import { WorkerOptions } from "tesseract.js";
 const { selectOptions } = langConfig.processModale
@@ -11,7 +11,10 @@ export class ProcessModale {
   closeModaleButton: HTMLButtonElement;
   submitPictureButton: HTMLButtonElement;
   textPictureElement: HTMLElement;
+  selectLangContainer: HTMLDivElement
   langInput: HTMLSelectElement;
+  langsList: HTMLUListElement
+  langsListLiElements: NodeListOf<HTMLLIElement>
   langInputErrorElement: HTMLElement;
   progressElement: HTMLElement;
   progressValueElement: HTMLElement;
@@ -21,6 +24,8 @@ export class ProcessModale {
   fileSrc: string
   status = ""
   file: File
+  lastUserAction: "mouse" | "keyboard" | null = null
+  boundMousedown: () => void = function () { }
 
   constructor(file: File) {
     document.dispatchEvent(new Event("removePaste"))
@@ -32,7 +37,10 @@ export class ProcessModale {
     this.closeModaleButton = document.getElementById("close-modale") as HTMLButtonElement
     this.submitPictureButton = document.getElementById("launch-process") as HTMLButtonElement
     this.textPictureElement = document.getElementById("text-picture")!
+    this.selectLangContainer = document.getElementById("selectLangContainer") as HTMLDivElement
     this.langInput = document.getElementById("lang") as HTMLSelectElement
+    this.langsList = document.getElementById("langsList") as HTMLUListElement
+    this.langsListLiElements = this.langsList.querySelectorAll("li") as NodeListOf<HTMLLIElement>
     this.langInputErrorElement = document.getElementById("lang-error")!
     this.progressElement = document.getElementById("progress")!
     this.progressValueElement = document.getElementById("progress-value")!
@@ -41,7 +49,44 @@ export class ProcessModale {
 
     this.closeModaleButton.addEventListener("click", this.closeProcessModale.bind(this));
     this.submitPictureButton.addEventListener("click", this.handleSubmitPicture.bind(this));
+    this.langInput.addEventListener("focus", this.handleLangInputFocus.bind(this))
+    this.langInput.addEventListener("blur", this.handleLangInputBlur.bind(this))
+    this.langInput.addEventListener("click", (event) => event.stopPropagation())
+    this.langInput.addEventListener("input", this.filterLangs.bind(this))
+    this.langsList.addEventListener("click", this.hideLangsList.bind(this))
+    this.boundMousedown = this.handleMouseDown.bind(this)
+    document.addEventListener("mousedown", this.boundMousedown)
+    this.selectLangContainer.addEventListener("keydown", this.handleKeyDown.bind(this))
+
+    this.langsListLiElements.forEach((langListLiElement) => {
+      langListLiElement.addEventListener("click", () => {
+        const chosenLangLitteral = langListLiElement.innerText
+        this.langInput.value = chosenLangLitteral
+      })
+    })
+
     this.displayLangFromStorage();
+  }
+
+  removeGlobalEvents() {
+    document.removeEventListener("mousedown", this.boundMousedown)
+  }
+
+  handleMouseDown() {
+    this.lastUserAction = "mouse"
+  }
+
+  handleKeyDown({ key }: KeyboardEvent) {
+    this.lastUserAction = "keyboard"
+
+    const activeElement = document.activeElement as HTMLLIElement | null
+    const isFocusingLangListLi = activeElement?.parentElement === this.langsList
+
+    if (key === "Enter" && isFocusingLangListLi) {
+      const chosenLangLitteral = activeElement.innerText
+      this.langInput.value = chosenLangLitteral
+      this.hideLangsList()
+    }
   }
 
   displayProcessModale() {
@@ -57,16 +102,17 @@ export class ProcessModale {
     }
   }
 
-  saveLangToStorage() {
-    localStorage.setItem("prefLang", this.langInput.value);
+  saveLangToStorage(chosenLangIso6392: string) {
+    localStorage.setItem("prefLangIso6391", chosenLangIso6392);
   }
 
   displayLangFromStorage() {
-    const prefLang = localStorage.getItem("prefLang") || this.getNavigatorLanguageToIso6392();
-    if (prefLang == null) return
+    const chosenLangIso6392 = localStorage.getItem("prefLangIso6391") || this.getNavigatorLanguageToIso6392();
+    if (chosenLangIso6392 == null) return
 
-    if (this.isLangCodeValid(prefLang)) {
-      this.langInput.value = selectOptions[prefLang];
+    if (this.isLangCodeValid(chosenLangIso6392)) {
+      const chosenLangLitteral = selectOptions[chosenLangIso6392]
+      this.langInput.value = chosenLangLitteral;
     } else {
       localStorage.removeItem("prefLang")
     }
@@ -84,6 +130,40 @@ export class ProcessModale {
 
   isLangCodeValid(code: string) {
     return langConfig.processModale.selectOptions[code] !== undefined
+  }
+
+  handleLangInputFocus() {
+    this.displayLangsList()
+    this.filterLangs()
+  }
+
+  handleLangInputBlur() {
+    if (this.lastUserAction === "mouse") {
+      this.hideLangsList()
+    }
+  }
+
+  displayLangsList() {
+    this.langsList.setAttribute("data-visible", "")
+  }
+
+  hideLangsList() {
+    this.langsList.removeAttribute("data-visible")
+  }
+
+  filterLangs() {
+    const langInputValue = this.langInput.value
+
+    this.langsListLiElements.forEach((langListLiElement) => {
+      const langLitteral = langListLiElement.textContent!
+      const isLangFound = langLitteral.toLowerCase().includes(langInputValue.toLowerCase())
+
+      if (isLangFound) {
+        langListLiElement.setAttribute("data-visible", "")
+      } else {
+        langListLiElement.removeAttribute("data-visible")
+      }
+    })
   }
 
   handleImageProcessing({ progress, status }: LoggerMessage) {
@@ -113,20 +193,21 @@ export class ProcessModale {
   }
 
   async handleSubmitPicture() {
-    const chosenLang = this.langInput.value;
-    const isLangValid = this.isLangCodeValid(chosenLang)
+    const chosenLangIso6392 = litteralToIso6391.get(this.langInput.value);
+    const isLangValid = chosenLangIso6392 !== undefined && this.isLangCodeValid(chosenLangIso6392)
     this.handleSelectError(isLangValid)
     if (isLangValid === false) return
 
-    this.saveLangToStorage()
+    this.saveLangToStorage(chosenLangIso6392)
     this.displayProcessingProgress();
 
     const options: Partial<WorkerOptions> = { logger: this.handleImageProcessing.bind(this) };
-    const worker = await createWorker(chosenLang, 1, options);
+    const worker = await createWorker(chosenLangIso6392, 1, options);
     const { data } = await worker.recognize(this.file);
     await worker.terminate();
 
     this.closeProcessModale();
+    this.removeGlobalEvents()
     new ResultModale(data);
   }
 }

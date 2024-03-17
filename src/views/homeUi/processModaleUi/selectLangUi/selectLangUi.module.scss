@@ -28,6 +28,11 @@
     list-style: none;
     scrollbar-color: var(--clr-dark) white;
     scrollbar-width: thin;
+    background-color: white;
+
+    &[data-visible] {
+      display: block;
+    }
 
     li {
       display: none;

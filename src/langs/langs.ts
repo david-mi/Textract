@@ -42,6 +42,7 @@ interface LangData {
     }
   }
   processModale: {
+    langInputPlaceholder: string
     processState: ProcessState,
     selectError: string,
     selectOptions: {
@@ -84,6 +85,7 @@ const lang: Record<LangDataProps, LangData> = {
       }
     },
     processModale: {
+      langInputPlaceholder: "Sélectionnez une langue",
       processState: {
         "loading tesseract core": "Chargement du noyau Tesseract",
         "initializing tesseract": "Initialisation de Tesseract",
@@ -134,6 +136,7 @@ const lang: Record<LangDataProps, LangData> = {
       }
     },
     processModale: {
+      langInputPlaceholder: "Select a lang",
       processState: {
         "loading tesseract core": "Loading tesseract core",
         "initializing tesseract": "Initializing tesseract",
@@ -156,6 +159,11 @@ const lang: Record<LangDataProps, LangData> = {
 };
 
 export const langConfig = lang[navigatorLanguageFirstTwoLetters] || lang.en;
+
+export const litteralToIso6391 = new Map<string, string>()
+Object
+  .entries(langConfig.processModale.selectOptions)
+  .forEach(([key, value]) => litteralToIso6391.set(value, key))
 
 export const iso6391toIso6392: Record<string, string> = {
   "af": "afr",
