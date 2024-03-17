@@ -7,7 +7,6 @@ export function langFormUi() {
   return `
     <form class=${styles.langForm}>
       <select id="lang" required>
-        <option hidden value="">${langConfig.processModale.choseLang}</option>
         ${showOptions(selectOptions)}
       </select>
     </form>

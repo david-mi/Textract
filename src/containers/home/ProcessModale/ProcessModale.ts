@@ -2,8 +2,9 @@ import { processModaleUi } from "@views/homeUi/processModaleUi/processModaleUi";
 import { ResultModale } from "../ResultModale/ResultModale";
 import { LoggerMessage, createWorker } from "tesseract.js";
 import { langConfig } from "@langs";
-import { ProcessState } from "@langs";
+import { ProcessState, iso6391toIso6392 } from "@langs";
 import { WorkerOptions } from "tesseract.js";
+const { selectOptions } = langConfig.processModale
 
 export class ProcessModale {
   processModale: HTMLElement
@@ -61,14 +62,24 @@ export class ProcessModale {
   }
 
   displayLangFromStorage() {
-    const prefLang = localStorage.getItem("prefLang");
+    const prefLang = localStorage.getItem("prefLang") || this.getNavigatorLanguageToIso6392();
     if (prefLang == null) return
 
     if (this.isLangCodeValid(prefLang)) {
-      this.langSelect.value = prefLang;
+      this.langSelect.value = selectOptions[prefLang];
     } else {
       localStorage.removeItem("prefLang")
     }
+  }
+
+  getNavigatorLanguageToIso6392() {
+    const navigatorLanguageToIso6391 = this.getNavigatorLanguageToIso6391()
+
+    return iso6391toIso6392[navigatorLanguageToIso6391] || null
+  }
+
+  getNavigatorLanguageToIso6391() {
+    return navigator.language.split("-")[0]
   }
 
   isLangCodeValid(code: string) {

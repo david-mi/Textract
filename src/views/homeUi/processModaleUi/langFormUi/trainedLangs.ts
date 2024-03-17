@@ -1,7 +1,4 @@
-export interface TrainedLangs {
-  [code: string]: string
-}
-
+export type TrainedLangs = Record<string, string>
 export const trainedLangsListEng: TrainedLangs = {
   "afr": "Afrikaans",
   "amh": "Amharic",
