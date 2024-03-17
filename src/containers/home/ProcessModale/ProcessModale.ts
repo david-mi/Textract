@@ -111,9 +111,7 @@ export class ProcessModale {
     this.displayProcessingProgress();
 
     const options: Partial<WorkerOptions> = { logger: this.handleImageProcessing.bind(this) };
-    const worker = await createWorker(options);
-    await worker.loadLanguage(chosenLang);
-    await worker.initialize(chosenLang);
+    const worker = await createWorker(chosenLang, 1, options);
     const { data } = await worker.recognize(this.file);
     await worker.terminate();
 
