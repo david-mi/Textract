@@ -1,15 +1,16 @@
 import { langConfig } from "@langs";
-import styles from "./langForm.module.scss";
+import styles from "./selectLangUi.module.scss";
 const { selectOptions } = langConfig.processModale
 import type { TrainedLangs } from "./trainedLangs";
 
-export function langFormUi() {
+export function selectLang() {
   return `
-    <form class=${styles.langForm}>
-      <select id="lang" required>
+    <div class=${styles.selectLang}>
+      <input id="lang" autofocus/>
+      <ul class=${styles.langsList}>
         ${showOptions(selectOptions)}
-      </select>
-    </form>
+      </ul>
+    </div>
   `;
 }
 
@@ -18,6 +19,13 @@ function showOptions(selectOptions: TrainedLangs): string {
     .entries(selectOptions)
     .sort((a, b) => a[1].localeCompare(b[1]))
     .reduce((html, [code, lang]) => {
-      return html += `<option value=${code}>${lang}</option>`
+      return html += (
+        `<li 
+        data-value=${code}
+        tabIndex="0"
+        >
+        ${lang}
+        </li>`
+      )
     }, "")
 }

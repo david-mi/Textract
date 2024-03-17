@@ -11,7 +11,7 @@
   transition: 200ms;
   background: var(--clr-dark);
 
-  &:hover {
+  &:hover:not(:focus) {
     span {
       background: var(--clr-gradient);
       background-clip: text;
@@ -22,5 +22,10 @@
 
   &:active {
     transform: scale(0.9);
+  }
+
+  &:focus {
+    background: var(--clr-gradient);
+    color: black;
   }
 }

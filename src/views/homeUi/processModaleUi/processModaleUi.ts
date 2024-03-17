@@ -1,6 +1,6 @@
 import styles from "./processModaleUi.module.scss";
 import { progressUi } from "./progressUi/progressUi";
-import { langFormUi } from "./langFormUi/langFormUi";
+import { selectLang } from "./selectLangUi/selectLangUi";
 import { imageUi } from "./imageUi/imageUi";
 import { launchProcessButtonUi } from "./launchProcessButtonUi/launchProcessButtonUi";
 import { topRightButtonUi } from "@views/common/topRightButtonUi/squareButton";
@@ -11,7 +11,7 @@ export const processModaleUi = (imageSrc: string) => {
     <div class=${styles.modale} id="modale">
       ${topRightButtonUi(closeIcon, "close-modale")}
       ${progressUi()}
-      ${langFormUi()}
+      ${selectLang()}
       ${imageUi(imageSrc)}
       ${launchProcessButtonUi()}
       <small id="lang-error" class=${styles.error}></small>

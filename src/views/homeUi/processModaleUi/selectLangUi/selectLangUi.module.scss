@@ -1,0 +1,58 @@
+.selectLang {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  --padding: 0.5rem 1rem;
+
+  input {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border: solid 1px var(--clr-dark);
+
+    &:focus {
+      outline-color: var(--clr-dark);
+    }
+  }
+
+  .langsList {
+    width: 100%;
+    display: none;
+    position: absolute;
+    bottom: -1rem;
+    transform: translateY(100%);
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    user-select: none;
+    border: solid 1px black;
+    list-style: none;
+    scrollbar-color: var(--clr-dark) white;
+    scrollbar-width: thin;
+
+    li {
+      display: none;
+      padding: var(--padding);
+      transition: transform 200ms;
+      border: solid 1px transparent;
+      transform: scale(0.95) translateX(-0.5rem);
+
+      &[data-visible] {
+        display: block;
+      }
+
+      &:hover,
+      &:focus {
+        background: var(--clr-dark);
+        color: white;
+        transform: scale(1) translateX(0);
+        width: calc(100% + 5irem);
+      }
+
+      &:focus {
+        background: var(--clr-gradient);
+        outline-color: var(--clr-dark);
+        color: black;
+      }
+    }
+  }
+}

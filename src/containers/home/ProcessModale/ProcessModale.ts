@@ -11,8 +11,8 @@ export class ProcessModale {
   closeModaleButton: HTMLButtonElement;
   submitPictureButton: HTMLButtonElement;
   textPictureElement: HTMLElement;
-  langSelect: HTMLSelectElement;
-  langSelectErrorElement: HTMLElement;
+  langInput: HTMLSelectElement;
+  langInputErrorElement: HTMLElement;
   progressElement: HTMLElement;
   progressValueElement: HTMLElement;
   animationElement: HTMLElement;
@@ -32,8 +32,8 @@ export class ProcessModale {
     this.closeModaleButton = document.getElementById("close-modale") as HTMLButtonElement
     this.submitPictureButton = document.getElementById("launch-process") as HTMLButtonElement
     this.textPictureElement = document.getElementById("text-picture")!
-    this.langSelect = document.getElementById("lang") as HTMLSelectElement
-    this.langSelectErrorElement = document.getElementById("lang-error")!
+    this.langInput = document.getElementById("lang") as HTMLSelectElement
+    this.langInputErrorElement = document.getElementById("lang-error")!
     this.progressElement = document.getElementById("progress")!
     this.progressValueElement = document.getElementById("progress-value")!
     this.animationElement = document.getElementById("animation")!
@@ -58,7 +58,7 @@ export class ProcessModale {
   }
 
   saveLangToStorage() {
-    localStorage.setItem("prefLang", this.langSelect.value);
+    localStorage.setItem("prefLang", this.langInput.value);
   }
 
   displayLangFromStorage() {
@@ -66,7 +66,7 @@ export class ProcessModale {
     if (prefLang == null) return
 
     if (this.isLangCodeValid(prefLang)) {
-      this.langSelect.value = selectOptions[prefLang];
+      this.langInput.value = selectOptions[prefLang];
     } else {
       localStorage.removeItem("prefLang")
     }
@@ -107,13 +107,13 @@ export class ProcessModale {
   }
 
   handleSelectError(isValid: boolean) {
-    this.langSelectErrorElement.innerText = isValid
+    this.langInputErrorElement.innerText = isValid
       ? ""
       : langConfig.processModale.selectError
   }
 
   async handleSubmitPicture() {
-    const chosenLang = this.langSelect.value;
+    const chosenLang = this.langInput.value;
     const isLangValid = this.isLangCodeValid(chosenLang)
     this.handleSelectError(isLangValid)
     if (isLangValid === false) return

@@ -1,4 +1,4 @@
-import { trainedLangsListEng, trainedLangsListFr } from "@views/homeUi/processModaleUi/langFormUi/trainedLangs";
+import { trainedLangsListEng, trainedLangsListFr } from "@views/homeUi/processModaleUi/selectLangUi/trainedLangs";
 
 type LangDataProps = "fr" | "en"
 const navigatorLanguageFirstTwoLetters = navigator.language.slice(0, 2) as LangDataProps
