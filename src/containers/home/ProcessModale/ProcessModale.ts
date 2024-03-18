@@ -66,6 +66,7 @@ export class ProcessModale {
     })
 
     this.displayLangFromStorage();
+    setTimeout(() => this.langInput.focus())
   }
 
   removeGlobalEvents() {
