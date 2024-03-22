@@ -50,7 +50,6 @@ export class ProcessModale {
     this.closeModaleButton.addEventListener("click", this.closeProcessModale.bind(this));
     this.submitPictureButton.addEventListener("click", this.handleSubmitPicture.bind(this));
     this.langInput.addEventListener("focus", this.handleLangInputFocus.bind(this))
-    this.langInput.addEventListener("blur", this.handleLangInputBlur.bind(this))
     this.langInput.addEventListener("click", (event) => event.stopPropagation())
     this.langInput.addEventListener("input", this.filterLangs.bind(this))
     this.langsList.addEventListener("click", this.hideLangsList.bind(this))
