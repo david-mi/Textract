@@ -86,6 +86,7 @@ export class ProcessModale {
       const chosenLangLitteral = activeElement.innerText
       this.langInput.value = chosenLangLitteral
       this.hideLangsList()
+      setTimeout(() => this.submitPictureButton.focus())
     }
   }
 
