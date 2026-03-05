@@ -1,7 +1,7 @@
 import { resultModaleUi } from "@views/homeUi/resultModaleUi/resultModaleUi";
 
 export class ResultModale {
-  paragraphs: Tesseract.Paragraph[] | null
+  paragraphs: Tesseract.Paragraph[]
   textResult: string
   resultModale: HTMLElement
   closeResultModaleButton: HTMLButtonElement
@@ -12,8 +12,8 @@ export class ResultModale {
   copiedElementTimeout: null | NodeJS.Timeout = null
   overflowWrapper: HTMLElement
 
-  constructor({ paragraphs, text }: Tesseract.Page) {
-    this.paragraphs = paragraphs
+  constructor({ blocks, text }: Tesseract.Page) {
+    this.paragraphs = this.getParagraphsFromResult(blocks, text) as Tesseract.Paragraph[];
     this.textResult = text;
     this.displayResultModale();
     this.resultModale = document.getElementById("result-modale")!;
@@ -25,6 +25,30 @@ export class ResultModale {
     this.copiedElement = document.getElementById("copied-text-alert")!;
     this.resultText = document.getElementById("result-text")!;
     this.overflowWrapper = document.getElementById("overflow-wrapper")!
+  }
+
+  getParagraphsFromResult(blocks: Tesseract.Block[] | null, text: string) {
+    if (blocks !== null) {
+      return blocks.flatMap(({ paragraphs }) => {
+        return paragraphs.map(({ lines }) => {
+          return {
+            lines: lines.map(({ text }) => ({ text }))
+          }
+        })
+      })
+    }
+
+    return text
+      .split(/\n{2,}/)
+      .map((paragraph) => paragraph.trim())
+      .filter(Boolean)
+      .map((paragraph) => ({
+        lines: paragraph
+          .split(/\n/)
+          .map((line) => line.trim())
+          .filter(Boolean)
+          .map((line) => ({ text: line }))
+      }))
   }
 
   async handleCopy() {
@@ -61,8 +85,6 @@ export class ResultModale {
 
   displayResultModale() {
     const main = document.querySelector("main")!;
-    if (this.paragraphs !== null) {
-      main.insertAdjacentHTML("beforeend", resultModaleUi(this.paragraphs));
-    }
+    main.insertAdjacentHTML("beforeend", resultModaleUi(this.paragraphs))
   }
 }
